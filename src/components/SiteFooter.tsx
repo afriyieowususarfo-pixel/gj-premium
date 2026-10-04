@@ -99,9 +99,15 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} GJ Premium. All rights reserved.
-          </p>
+          <div className="flex items-center gap-5 text-xs text-muted-foreground">
+            <span>© {new Date().getFullYear()} GJ Premium. All rights reserved.</span>
+            <Link
+              to="/privacy"
+              className="transition-colors hover:text-foreground"
+            >
+              Privacy policy
+            </Link>
+          </div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
             Quality · Care · Supply
           </p>

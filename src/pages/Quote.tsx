@@ -597,7 +597,14 @@ export default function Quote() {
                   </Button>
                   <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                     We only use your details to prepare your quote. No account,
-                    no mailing list.
+                    no mailing list. See our{" "}
+                    <Link
+                      to="/privacy"
+                      className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                    >
+                      privacy policy
+                    </Link>
+                    .
                   </p>
                 </div>
               </form>
