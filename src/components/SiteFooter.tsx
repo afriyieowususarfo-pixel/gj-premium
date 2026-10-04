@@ -1,0 +1,112 @@
+import { BrandLogo } from "@/components/BrandLogo";
+import type { ReactNode } from "react";
+import { Link } from "react-router";
+
+const SITE_LINKS = [
+  { label: "Overview", to: "/#overview" },
+  { label: "What we supply", to: "/#supply" },
+  { label: "Quote process", to: "/#process" },
+];
+
+const QUOTE_LINKS = [
+  { label: "Request a quote", to: "/quote" },
+  { label: "What to include", to: "/quote#checklist" },
+];
+
+const CONTACT_LINKS = [
+  { label: "quotes@gjpremium.com", href: "mailto:quotes@gjpremium.com" },
+  { label: "+1 (555) 014-2200", href: "tel:+15550142200" },
+  { label: "Mon–Fri, 8:00–18:00 ET", href: undefined },
+];
+
+function FooterColumn({
+  heading,
+  children,
+}: {
+  heading: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        {heading}
+      </h3>
+      <ul className="mt-4 space-y-2.5">{children}</ul>
+    </div>
+  );
+}
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-border">
+      <div className="mx-auto w-full max-w-6xl px-6 py-14 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <BrandLogo orientation="stacked" tagline />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Medical supply partner to clinics, practices, labs, and care
+              facilities. Quality products, careful fulfillment, one clear
+              quote.
+            </p>
+          </div>
+
+          <div className="grid gap-10 md:col-span-6 md:col-start-7 md:grid-cols-2 lg:grid-cols-3">
+            <FooterColumn heading="Site">
+              {SITE_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </FooterColumn>
+
+            <FooterColumn heading="Quotes">
+              {QUOTE_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </FooterColumn>
+
+            <FooterColumn heading="Contact">
+              {CONTACT_LINKS.map((link) => (
+                <li key={link.label}>
+                  {link.href ? (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <span className="text-sm text-muted-foreground">
+                      {link.label}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </FooterColumn>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} GJ Premium. All rights reserved.
+          </p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
+            Quality · Care · Supply
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
