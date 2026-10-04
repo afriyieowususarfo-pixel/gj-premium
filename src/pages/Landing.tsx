@@ -25,24 +25,54 @@ const FACTS = [
 
 const CATEGORIES = [
   {
-    name: "PPE & exam gloves",
-    description:
-      "Nitrile and latex gloves, gowns, masks, and eye protection in bulk cases.",
-  },
-  {
     name: "Wound care",
     description:
       "Dressings, bandages, tapes, and antiseptics for every care setting.",
   },
   {
-    name: "Diagnostics",
+    name: "Diabetes care",
     description:
-      "Monitoring consumables, test kits, and everyday diagnostic essentials.",
+      "Test strips, lancets, monitors, and consumables for glucose management.",
   },
   {
-    name: "Daily consumables",
+    name: "Infusion & vascular access",
     description:
-      "Swabs, syringes, drapes, and the items you reorder every week.",
+      "IV sets, catheters, cannulas, and accessories for infusion therapy.",
+  },
+  {
+    name: "Medical nutrition",
+    description:
+      "Formulas and supplements for enteral and clinical nutrition support.",
+  },
+  {
+    name: "Continence drainage",
+    description:
+      "Urinary catheters, drainage bags, and leg bags for continence care.",
+  },
+  {
+    name: "Incontinence absorbing",
+    description:
+      "Absorbent pads, briefs, and underpads for incontinence care.",
+  },
+  {
+    name: "Nursing & facilities",
+    description:
+      "Everyday nursing supplies and care-room consumables for facilities.",
+  },
+  {
+    name: "Personal care",
+    description:
+      "Hygiene, bathing, and skin-care products for daily patient care.",
+  },
+  {
+    name: "Personal protection",
+    description:
+      "Gloves, gowns, masks, and eye protection for staff and patients.",
+  },
+  {
+    name: "Surgical & OR",
+    description:
+      "Surgical drapes, gowns, and operating-room consumables.",
   },
 ];
 
@@ -77,7 +107,7 @@ const SITE_STEPS = [
   {
     number: "01",
     title: "See what we supply",
-    description: "Four core categories, described in plain language.",
+    description: "Ten product categories, described in plain language.",
   },
   {
     number: "02",

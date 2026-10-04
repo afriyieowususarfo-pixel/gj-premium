@@ -1,4 +1,5 @@
 import { v } from "convex/values";
+import { internal } from "./_generated/api";
 import { mutation } from "./_generated/server";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -41,7 +42,7 @@ export const submit = mutation({
     if (neededBy.length === 0) throw new Error("A needed-by timeframe is required.");
     if (location.length === 0) throw new Error("A delivery location is required.");
 
-    return await ctx.db.insert("quoteRequests", {
+    const id = await ctx.db.insert("quoteRequests", {
       fullName,
       organization,
       email,
@@ -55,5 +56,17 @@ export const submit = mutation({
       status: "new",
       createdAt: Date.now(),
     });
+
+    const reference = `GJ-P-${id.slice(-6).toUpperCase()}`;
+
+    // Best-effort confirmation email — runs after this transaction commits,
+    // so the quote is stored even if delivery fails (see quoteEmails.ts).
+    await ctx.scheduler.runAfter(
+      0,
+      internal.quoteEmails.sendQuoteConfirmation,
+      { to: email, fullName, organization, reference },
+    );
+
+    return { id, reference };
   },
 });

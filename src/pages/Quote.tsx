@@ -31,10 +31,16 @@ const FACILITY_TYPES = [
 ];
 
 const CATEGORIES = [
-  "PPE & exam gloves",
   "Wound care",
-  "Diagnostics",
-  "Daily consumables",
+  "Diabetes care",
+  "Infusion & vascular access",
+  "Medical nutrition",
+  "Continence drainage",
+  "Incontinence absorbing",
+  "Nursing & facilities",
+  "Personal care",
+  "Personal protection",
+  "Surgical & OR",
   "Multiple categories",
   "Not sure yet",
 ];
@@ -278,7 +284,7 @@ export default function Quote() {
     setIsSubmitting(true);
     setSubmitError(null);
     try {
-      const id = await submitQuote({
+      const { reference } = await submitQuote({
         fullName: form.fullName.trim(),
         organization: form.organization.trim(),
         email: form.email.trim(),
@@ -291,7 +297,7 @@ export default function Quote() {
         notes: form.notes.trim() || undefined,
       });
       setConfirmation({
-        reference: `GJ-P-${id.slice(-6).toUpperCase()}`,
+        reference,
         email: form.email.trim(),
         organization: form.organization.trim(),
         neededBy: form.neededBy,
