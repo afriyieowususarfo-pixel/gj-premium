@@ -1,10 +1,11 @@
 import { BrandLogo } from "@/components/BrandLogo";
+import { PRODUCT_CATEGORIES } from "@/lib/catalog";
 import type { ReactNode } from "react";
 import { Link } from "react-router";
 
 const SITE_LINKS = [
   { label: "Overview", to: "/#overview" },
-  { label: "What we supply", to: "/#supply" },
+  { label: "Products", to: "/products" },
   { label: "Quote process", to: "/#process" },
 ];
 
@@ -98,7 +99,25 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 border-t border-border pt-7">
+          <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Assortment
+          </h3>
+          <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2.5">
+            {PRODUCT_CATEGORIES.map((category) => (
+              <li key={category.slug}>
+                <Link
+                  to={`/products#${category.slug}`}
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {category.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-5 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} GJ Premium. All rights reserved.</span>
             <Link

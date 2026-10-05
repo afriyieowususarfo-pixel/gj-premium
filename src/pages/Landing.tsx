@@ -2,6 +2,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
+import { PRODUCT_CATEGORIES } from "@/lib/catalog";
 import { ArrowRight, Check } from "lucide-react";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router";
@@ -20,59 +21,6 @@ const FACTS = [
   {
     value: "One specialist",
     label: "Your single contact, from quote to delivery.",
-  },
-];
-
-const CATEGORIES = [
-  {
-    name: "Wound care",
-    description:
-      "Dressings, bandages, tapes, and antiseptics for every care setting.",
-  },
-  {
-    name: "Diabetes care",
-    description:
-      "Test strips, lancets, monitors, and consumables for glucose management.",
-  },
-  {
-    name: "Infusion & vascular access",
-    description:
-      "IV sets, catheters, cannulas, and accessories for infusion therapy.",
-  },
-  {
-    name: "Medical nutrition",
-    description:
-      "Formulas and supplements for enteral and clinical nutrition support.",
-  },
-  {
-    name: "Continence drainage",
-    description:
-      "Urinary catheters, drainage bags, and leg bags for continence care.",
-  },
-  {
-    name: "Incontinence absorbing",
-    description:
-      "Absorbent pads, briefs, and underpads for incontinence care.",
-  },
-  {
-    name: "Nursing & facilities",
-    description:
-      "Everyday nursing supplies and care-room consumables for facilities.",
-  },
-  {
-    name: "Personal care",
-    description:
-      "Hygiene, bathing, and skin-care products for daily patient care.",
-  },
-  {
-    name: "Personal protection",
-    description:
-      "Gloves, gowns, masks, and eye protection for staff and patients.",
-  },
-  {
-    name: "Surgical & OR",
-    description:
-      "Surgical drapes, gowns, and operating-room consumables.",
   },
 ];
 
@@ -107,7 +55,7 @@ const SITE_STEPS = [
   {
     number: "01",
     title: "See what we supply",
-    description: "Ten product categories, described in plain language.",
+    description: "Ten product categories, with the typical line items in each.",
   },
   {
     number: "02",
@@ -325,17 +273,34 @@ export default function Landing() {
         <section id="supply" className="scroll-mt-16 border-y border-border bg-muted/40">
           <div className={`${CONTAINER} py-20 md:py-28`}>
             <FadeIn>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
-                What we supply
-              </p>
-              <h2 className="mt-5 max-w-2xl text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
-                The essentials of patient care, kept in stock.
-              </h2>
+              <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
+                <div className="lg:col-span-7">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
+                    What we supply
+                  </p>
+                  <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+                    The essentials of patient care, kept in stock.
+                  </h2>
+                </div>
+                <div className="lg:col-span-5">
+                  <p className="text-base leading-relaxed text-muted-foreground">
+                    Ten categories, from wound care to the operating room —
+                    each one with the line items facilities ask us for most.
+                  </p>
+                  <Link
+                    to="/products"
+                    className="mt-5 inline-flex items-center gap-2 text-[15px] font-medium text-foreground underline decoration-border underline-offset-[6px] transition-colors hover:decoration-foreground"
+                  >
+                    See the full assortment
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </div>
+              </div>
             </FadeIn>
 
             <FadeIn className="mt-12" delay={0.1}>
               <ul className="border-t border-border">
-                {CATEGORIES.map((category, index) => (
+                {PRODUCT_CATEGORIES.map((category, index) => (
                   <li
                     key={category.name}
                     className="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60"
@@ -344,7 +309,12 @@ export default function Landing() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 className="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3">
-                      {category.name}
+                      <Link
+                        to={`/products#${category.slug}`}
+                        className="transition-colors hover:text-brand-navy"
+                      >
+                        {category.name}
+                      </Link>
                     </h3>
                     <p className="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">
                       {category.description}

@@ -4,10 +4,12 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 
-const NAV_LINKS = [
-  { label: "Overview", hash: "#overview" },
-  { label: "What we supply", hash: "#supply" },
-  { label: "Process", hash: "#process" },
+type NavItem = { label: string; to: string; hash?: string };
+
+const NAV_LINKS: NavItem[] = [
+  { label: "Overview", to: "/", hash: "#overview" },
+  { label: "Products", to: "/products" },
+  { label: "Process", to: "/", hash: "#process" },
 ];
 
 export function SiteHeader() {
@@ -38,7 +40,9 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = location.pathname === "/" && hash === link.hash;
+            const isActive = link.hash
+              ? location.pathname === "/" && hash === link.hash
+              : location.pathname === link.to;
             const className = `text-sm transition-colors ${
               isActive
                 ? "text-foreground"
@@ -46,13 +50,17 @@ export function SiteHeader() {
             }`;
 
             // On the landing page, plain anchors scroll natively; from other
-            // routes, route through the router and let Landing handle the hash.
-            return location.pathname === "/" ? (
-              <a key={link.hash} href={link.hash} className={className}>
+            // routes, route through the router and let the page handle the hash.
+            return link.hash && location.pathname === "/" ? (
+              <a key={link.label} href={link.hash} className={className}>
                 {link.label}
               </a>
             ) : (
-              <Link key={link.hash} to={`/${link.hash}`} className={className}>
+              <Link
+                key={link.label}
+                to={link.hash ? `/${link.hash}` : link.to}
+                className={className}
+              >
                 {link.label}
               </Link>
             );

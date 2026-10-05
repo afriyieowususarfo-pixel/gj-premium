@@ -13,10 +13,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/convex/_generated/api";
+import { CATEGORY_OPTIONS } from "@/lib/catalog";
 import { useMutation } from "convex/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useSearchParams } from "react-router";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-6 lg:px-8";
 
@@ -30,20 +31,8 @@ const FACILITY_TYPES = [
   "Other",
 ];
 
-const CATEGORIES = [
-  "Wound care",
-  "Diabetes care",
-  "Infusion & vascular access",
-  "Medical nutrition",
-  "Continence drainage",
-  "Incontinence absorbing",
-  "Nursing & facilities",
-  "Personal care",
-  "Personal protection",
-  "Surgical & OR",
-  "Multiple categories",
-  "Not sure yet",
-];
+// Ten product categories plus the catch-alls, kept in sync with the site.
+const CATEGORIES = CATEGORY_OPTIONS;
 
 const NEEDED_BY = [
   "ASAP (within 48 hours)",
@@ -234,9 +223,16 @@ function SelectField({
 
 export default function Quote() {
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const submitQuote = useMutation(api.quoteRequests.submit);
 
-  const [form, setForm] = useState<FormState>(EMPTY_FORM);
+  // Arriving from a category link (/quote?category=Wound%20care) preselects it.
+  const [form, setForm] = useState<FormState>(() => {
+    const requested = searchParams.get("category");
+    return requested && CATEGORIES.includes(requested)
+      ? { ...EMPTY_FORM, category: requested }
+      : EMPTY_FORM;
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
