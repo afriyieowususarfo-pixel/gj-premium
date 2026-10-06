@@ -23,7 +23,7 @@ const SECTIONS = [
             {
               term: "Contact details",
               detail:
-                "Your name, organization or facility name, work email, and — optionally — phone number.",
+                "Your name, organization or facility name, work email, and optionally a phone number.",
             },
             {
               term: "Facility details",
@@ -66,7 +66,7 @@ const SECTIONS = [
         <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-foreground marker:text-border">
           <li>prepare and deliver the quote you requested;</li>
           <li>
-            contact you about that request — clarifying items, confirming
+            contact you about that request: clarifying items, confirming
             availability, and scheduling fulfillment;
           </li>
           <li>keep the site secure and improve how it works.</li>
@@ -100,7 +100,7 @@ const SECTIONS = [
       <p>
         We do not sell your personal information. We share it only with service
         providers who help us run this website and deliver quotes (such as our
-        hosting and database provider), or where required by law — for example,
+        hosting and database provider), or where required by law, for example,
         a valid legal request.
       </p>
     ),

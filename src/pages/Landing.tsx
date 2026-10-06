@@ -30,7 +30,7 @@ const STEPS = [
     number: "01",
     title: "Send your request",
     description:
-      "Fill in the quote form: items and quantities, delivery location, and timing. It takes about two minutes — no account required.",
+      "Fill in the quote form: items and quantities, delivery location, and timing. It takes about two minutes, with no account required.",
   },
   {
     number: "02",
@@ -42,13 +42,13 @@ const STEPS = [
     number: "03",
     title: "Quote in your inbox",
     description:
-      "You receive clear pricing, availability, and a delivery window — within one business day.",
+      "You receive clear pricing, availability, and a delivery window within one business day.",
   },
   {
     number: "04",
     title: "Approve and schedule",
     description:
-      "Approve the quote and we schedule fulfillment. Questions? Reply to the email — the same specialist handles them.",
+      "Approve the quote and we schedule fulfillment. Questions? Reply to the email; the same specialist handles them.",
   },
 ];
 
@@ -89,7 +89,7 @@ const PROMISE = [
     number: "01",
     title: "Within one business day",
     description:
-      "Every request gets a written reply with pricing, availability and a delivery window — or a clear reason why we can't quote it.",
+      "Every request gets a written reply with pricing, availability and a delivery window, or a clear reason why we can't quote it.",
   },
   {
     number: "02",
@@ -101,7 +101,7 @@ const PROMISE = [
     number: "03",
     title: "No waiting on us",
     description:
-      "If something in your list is ambiguous, we ask before quoting instead of going quiet — one specialist owns the thread.",
+      "If something in your list is ambiguous, we ask before quoting instead of going quiet. One specialist owns the thread.",
   },
 ];
 
@@ -110,7 +110,7 @@ const CASE_STUDIES = [
     label: "Multi-site dental group",
     title: "Four locations, one order list",
     challenge:
-      "Each clinic bought separately, at different prices, from different reps — and nobody could see the total.",
+      "Each clinic bought separately, at different prices, from different reps, and nobody could see the total.",
     approach:
       "One shared assortment and price list across the group, ordered through a single contact and delivered on one schedule.",
     outcome:
@@ -151,7 +151,7 @@ const FAQ: {
   {
     question: "Do I need an account to order?",
     answer:
-      "No. There is nothing to sign up for — one short form, and a supply specialist replies to your work email.",
+      "No. There is nothing to sign up for: one short form, and a supply specialist replies to your work email.",
   },
   {
     question: "What should I include in the request?",
@@ -162,12 +162,12 @@ const FAQ: {
   {
     question: "Does it cost anything to request a quote?",
     answer:
-      "Nothing. Quotes are free and carry no obligation — the figure arrives so you can compare it against what you pay today.",
+      "Nothing. Quotes are free and carry no obligation: the figure arrives so you can compare it against what you pay today.",
   },
   {
     question: "Who do you supply?",
     answer:
-      "Clinics, medical practices, laboratories, pharmacies, dental practices, long-term care and home-health agencies — across all ten categories we stock.",
+      "Clinics, medical practices, laboratories, pharmacies, dental practices, long-term care and home-health agencies, across all ten categories we stock.",
     link: { label: "See the categories", to: "/products" },
   },
   {
@@ -205,7 +205,7 @@ export default function Landing() {
   const location = useLocation();
 
   usePageSeo({
-    title: "GJ Premium — Medical Supply, Quoted in One Business Day",
+    title: "GJ Premium | Medical Supply, Quoted in One Business Day",
     description:
       "GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day.",
     path: "/",
@@ -257,7 +257,7 @@ export default function Landing() {
                   GJ Premium keeps clinics, practices, and care facilities
                   stocked with the everyday essentials of patient care. This
                   site is simple by design: tell us what you need, and a supply
-                  specialist replies with a clear quote — usually within one
+                  specialist replies with a clear quote, usually within one
                   business day.
                 </p>
                 <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
@@ -354,7 +354,7 @@ export default function Landing() {
                 Introduction
               </p>
               <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
-                Who we are — and what this website is for.
+                Who we are, and what this website is for.
               </h2>
             </FadeIn>
 
@@ -362,8 +362,8 @@ export default function Landing() {
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-[17px]">
                 <p className="text-foreground">
                   GJ Premium is a medical supply company. We keep care settings
-                  stocked with the products they use every day — gloves, gowns,
-                  dressings, diagnostics, and consumables — in the pack sizes
+                  stocked with the products they use every day: gloves, gowns,
+                  dressings, diagnostics, and consumables, in the pack sizes
                   you actually order.
                 </p>
                 <p>
@@ -413,7 +413,7 @@ export default function Landing() {
                 </div>
                 <div className="lg:col-span-5">
                   <p className="text-base leading-relaxed text-muted-foreground">
-                    Ten categories, from wound care to the operating room —
+                    Ten categories, from wound care to the operating room,
                     each one with the line items facilities ask us for most.
                   </p>
                   <Link
@@ -553,7 +553,7 @@ export default function Landing() {
                 </h2>
                 <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
                   If we ever miss it, you get a reason and a revised date the
-                  same way — you should never be left wondering whether
+                  same way, so you should never be left wondering whether
                   anyone read your request.
                 </p>
                 <div className="mt-8">
@@ -608,8 +608,8 @@ export default function Landing() {
                   </h2>
                 </div>
                 <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
-                  Three real shapes of problem — bought in parallel, picked by
-                  hand, and stranded on a long lead time — and what changed
+                  Three real shapes of problem: bought in parallel, picked by
+                  hand, and stranded on a long lead time, and what changed
                   once the list moved to one supplier.
                 </p>
               </div>
@@ -669,7 +669,7 @@ export default function Landing() {
                 >
                   Tell us what you need
                 </Link>{" "}
-                — you get the fix priced back within one business day.
+                and you get the fix priced back within one business day.
               </p>
             </FadeIn>
           </div>
@@ -695,8 +695,8 @@ export default function Landing() {
                     className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                   >
                     Ask in the quote form
-                  </Link>{" "}
-                  — the notes field reaches the same specialist.
+                  </Link>
+                  , since the notes field reaches the same specialist.
                 </p>
               </div>
             </FadeIn>

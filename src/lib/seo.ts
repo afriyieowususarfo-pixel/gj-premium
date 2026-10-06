@@ -4,7 +4,7 @@ export const SITE_NAME = "GJ Premium";
 
 /**
  * Origin used for canonical URLs, Open Graph tags and JSON-LD.
- * Defaults to the company domain — set `VITE_SITE_URL` in the Keys tab to
+ * Defaults to the company domain; set `VITE_SITE_URL` in the Keys tab to
  * point everything at a different (e.g. custom) domain without code changes.
  */
 const envUrl = import.meta.env.VITE_SITE_URL as string | undefined;
@@ -122,7 +122,7 @@ export function applyPageSeo({
 /**
  * Publishes the page's document title, meta description, canonical link,
  * Open Graph / Twitter share tags and JSON-LD. Runs in an effect so it only
- * touches the browser — SSR renders are unaffected.
+ * touches the browser, so SSR renders are unaffected.
  */
 export function usePageSeo({
   title,

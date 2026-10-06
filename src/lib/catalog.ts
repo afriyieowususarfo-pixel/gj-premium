@@ -1,5 +1,5 @@
 /**
- * The GJ Premium assortment — the single source of truth for product
+ * The GJ Premium assortment: the single source of truth for product
  * categories, shared by the landing page, the products page and the
  * quote form so the lists can never drift apart.
  */
@@ -68,7 +68,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: "continence-drainage",
     name: "Continence drainage",
     description:
-      "Closed drainage for urinary care — catheters, bags and accessories chosen for comfort, safety and length of stay.",
+      "Closed drainage for urinary care: catheters, bags and accessories chosen for comfort, safety and length of stay.",
     items: [
       "Urinary catheters",
       "Drainage bags",
@@ -94,7 +94,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: "nursing-facilities",
     name: "Nursing & facilities",
     description:
-      "The general consumables a nursing station and a care facility go through every shift — measured, bagged, and delivered.",
+      "The general consumables a nursing station and a care facility go through every shift: measured, bagged, and delivered.",
     items: [
       "Thermometers and diagnostics",
       "Blood pressure cuffs and stethoscopes",
@@ -107,7 +107,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: "personal-care",
     name: "Personal care",
     description:
-      "Hygiene and skin care for daily patient care — gentle cleansers, barrier protection and bathing essentials.",
+      "Hygiene and skin care for daily patient care: gentle cleansers, barrier protection and bathing essentials.",
     items: [
       "Body wash and shampoo",
       "Cleansing wipes",
@@ -120,7 +120,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: "personal-protection",
     name: "Personal protection",
     description:
-      "PPE for staff and patients, stocked in the case quantities facilities burn through — with fit, grade, and standard checked.",
+      "PPE for staff and patients, stocked in the case quantities facilities burn through, with fit, grade, and standard checked.",
     items: [
       "Examination and surgical gloves",
       "Gowns and aprons",
@@ -133,7 +133,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: "surgical-or",
     name: "Surgical & OR",
     description:
-      "Sterile consumables for the operating theatre — drapes, gowns and procedure packs assembled around your list.",
+      "Sterile consumables for the operating theatre: drapes, gowns and procedure packs assembled around your list.",
     items: [
       "Sterile drapes and procedure packs",
       "Surgical gowns",

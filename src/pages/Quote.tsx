@@ -332,7 +332,7 @@ export default function Quote() {
                 Tell us what you need.
               </h1>
               <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
-                One short form — no account required. A supply specialist
+                One short form, no account required. A supply specialist
                 replies with pricing, availability, and delivery timing within
                 one business day.
               </p>
@@ -395,7 +395,7 @@ export default function Quote() {
                       type="tel"
                       className="h-10"
                       autoComplete="tel"
-                      placeholder="Optional — for delivery coordination"
+                      placeholder="Optional: for delivery coordination"
                       value={form.phone}
                       onChange={(e) => set("phone", e.target.value)}
                     />
@@ -449,7 +449,7 @@ export default function Quote() {
                 <FormSection
                   number="03"
                   title="What you need"
-                  hint="List items and quantities — model numbers help, but aren't required."
+                  hint="List items and quantities: model numbers help, but aren't required."
                 >
                   <Field
                     id="items"
@@ -462,7 +462,7 @@ export default function Quote() {
                       id="items"
                       className="min-h-32"
                       placeholder={
-                        "Nitrile exam gloves, medium — 20 boxes\nFluid-resistant gowns — 50 units"
+                        "Nitrile exam gloves, medium: 20 boxes\nFluid-resistant gowns: 50 units"
                       }
                       value={form.items}
                       onChange={(e) => set("items", e.target.value)}
@@ -506,7 +506,7 @@ export default function Quote() {
                     <Input
                       id="notes"
                       className="h-10"
-                      placeholder="Optional — brands, billing, standards"
+                      placeholder="Optional: brands, billing, standards"
                       value={form.notes}
                       onChange={(e) => set("notes", e.target.value)}
                     />

@@ -61,7 +61,7 @@ const { isLoading, isAuthenticated, user, signIn, signOut } = useAuth();
 
 The starter `/dashboard` route is protected with `RequireAuth`. Extend that page
 for the product's authenticated experience, and reuse `RequireAuth` when adding
-another protected route — do NOT hand-roll a redirect to `/auth`, since landing
+another protected route: do NOT hand-roll a redirect to `/auth`, since landing
 on a bare sign-in form with no explanation of what was blocked is confusing.
 
 `RequireAuth` states the block on the page the visitor asked for and sends them

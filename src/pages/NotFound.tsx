@@ -41,7 +41,7 @@ export default function NotFound() {
                 Page not found.
               </h1>
               <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-                The page you asked for doesn&apos;t exist — it may have been
+                The page you asked for doesn&apos;t exist. It may have been
                 moved, or the link may be mistyped. Everything on this site is
                 one click away below.
               </p>

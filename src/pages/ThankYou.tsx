@@ -34,7 +34,7 @@ export default function ThankYou() {
   const reference = searchParams.get("ref")?.trim() || null;
 
   usePageSeo({
-    title: "Thank you — request received | GJ Premium",
+    title: "Thank you, request received | GJ Premium",
     description:
       "Your quote request has been received. A supply specialist will reply with pricing, availability and a delivery window within one business day.",
     path: "/thank-you",
@@ -57,7 +57,7 @@ export default function ThankYou() {
             </p>
             <div className="mt-5 grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-16">
               <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight md:text-5xl lg:col-span-7">
-                Thank you — we have your list.
+                Thank you, we have your list.
               </h1>
               <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
                 Nothing else to do. A supply specialist is already working on
@@ -81,7 +81,7 @@ export default function ThankYou() {
               </h2>
               <p className="mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
                 We have logged your request and a confirmation is on its way.
-                Keep the reference below for your records — it is what we will
+                Keep the reference below for your records. It is what we will
                 quote under.
               </p>
 

@@ -122,8 +122,8 @@
 /* Photographic background wash for page intros: the pills-heart photo
    behind a soft scrim, so headline copy stays crisp over it. The scrim is
    mixed from --background, so it follows light/dark automatically.
-   The layers live on ::before so `filter` brightens the photo only — the
-   section's own copy is never filtered — and content children are lifted
+   The layers live on ::before so `filter` brightens the photo only, so the
+   section's own copy is never filtered, and content children are lifted
    above that layer with position: relative. */
 .photo-wash {
   position: relative;

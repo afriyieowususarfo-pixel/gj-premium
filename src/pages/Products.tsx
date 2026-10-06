@@ -16,7 +16,7 @@ const ASSURANCES = [
     number: "01",
     title: "Sourced from established manufacturers",
     description:
-      "We buy from established medical supply manufacturers and check lots, expiry, and packaging on receipt — so what arrives matches what you ordered.",
+      "We buy from established medical supply manufacturers and check lots, expiry, and packaging on receipt, so what arrives matches what you ordered.",
   },
   {
     number: "02",
@@ -28,7 +28,7 @@ const ASSURANCES = [
     number: "03",
     title: "Pack sizes you actually order in",
     description:
-      "Cases, cartons, and individual units as the item is really sold — consolidated into one delivery on the schedule your facility runs on.",
+      "Cases, cartons, and individual units as the item is really sold, consolidated into one delivery on the schedule your facility runs on.",
   },
   {
     number: "04",
@@ -44,7 +44,7 @@ export default function Products() {
   usePageSeo({
     title: "Medical supply product categories | GJ Premium",
     description:
-      "The ten medical supply categories GJ Premium stocks — wound care, diabetes care, infusion, nutrition, continence, nursing, personal care, protection and surgical — with typical line items and one quote form.",
+      "Ten medical supply categories from GJ Premium: wound care, diabetes care, infusion, nutrition, continence, nursing, personal care, protection and surgical, with typical line items and one quote form.",
     path: "/products",
     jsonLd: [
       breadcrumbJsonLd([
@@ -101,7 +101,7 @@ export default function Products() {
               <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
                 <p>
                   GJ Premium supplies care settings across ten product
-                  categories — from wound care to the operating room. Whatever
+                  categories, from wound care to the operating room. Whatever
                   the mix, it goes on one request: items, quantities, delivery
                   location, and timing.
                 </p>
@@ -142,8 +142,8 @@ export default function Products() {
                 <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
                   Supplier catalogues name things differently. These are the
                   categories we stock under, with the line items facilities ask
-                  us for most. If your list crosses several of them — or none of
-                  them neatly — send it anyway.
+                  us for most. If your list crosses several of them, or none of
+                  them neatly, send it anyway.
                 </p>
               </div>
             </FadeIn>
@@ -209,7 +209,7 @@ export default function Products() {
                   Supply that behaves the same way on every order.
                 </h2>
                 <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
-                  Products matter, and so does everything around them — the
+                  Products matter, and so does everything around them: the
                   paperwork, the pack sizes, and the person you call.
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function Products() {
                   </h3>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                     Product names vary between suppliers and catalogues. Tell us
-                    what you need in your own words — we sort the items into the
+                    what you need in your own words, we sort the items into the
                     right categories and quote them together, including
                     equivalents where a line has been discontinued.
                   </p>
@@ -307,7 +307,7 @@ export default function Products() {
                 Ten categories. One form. One business day.
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-400">
-                Quotes for clinics, practices, labs, and care facilities — with
+                Quotes for clinics, practices, labs, and care facilities, with
                 pricing, availability, and a delivery window in the reply.
               </p>
             </div>

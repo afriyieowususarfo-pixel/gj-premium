@@ -5,7 +5,7 @@ import { mutation } from "./_generated/server";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * Public quote-request submission. No account required — the site's whole
+ * Public quote-request submission. No account required: the site's whole
  * v1 flow funnels here.
  */
 export const submit = mutation({
@@ -59,7 +59,7 @@ export const submit = mutation({
 
     const reference = `GJ-P-${id.slice(-6).toUpperCase()}`;
 
-    // Best-effort confirmation email — runs after this transaction commits,
+    // Best-effort confirmation email: runs after this transaction commits,
     // so the quote is stored even if delivery fails (see quoteEmails.ts).
     await ctx.scheduler.runAfter(
       0,

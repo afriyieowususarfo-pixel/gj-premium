@@ -63,7 +63,7 @@ export const sendQuoteConfirmation = internalAction({
     const apiKey = process.env.AGENTMAIL_API_KEY;
     if (!apiKey) {
       throw new Error(
-        "AGENTMAIL_API_KEY is not set — add it in the Keys tab to enable quote confirmation emails.",
+        "AGENTMAIL_API_KEY is not set. Add it in the Keys tab to enable quote confirmation emails.",
       );
     }
 
@@ -76,7 +76,7 @@ export const sendQuoteConfirmation = internalAction({
       throw new Error("AgentMail did not return an inbox_id.");
     }
 
-    const subject = `Your GJ Premium quote request — ${args.reference}`;
+    const subject = `Your GJ Premium quote request: ${args.reference}`;
     const text = [
       `Hello ${args.fullName},`,
       "",
@@ -87,14 +87,14 @@ export const sendQuoteConfirmation = internalAction({
       `  Facility:   ${args.organization}`,
       "",
       "What happens next:",
-      "  1. We review your request — items, pack sizes, and availability.",
+      "  1. We review your request: items, pack sizes, and availability.",
       "  2. You receive pricing, availability, and a delivery window within one",
       "     business day.",
       "  3. You approve the quote, and we schedule fulfillment.",
       "",
       "Questions? Just reply to this email.",
       "",
-      "— GJ Premium",
+      "GJ Premium",
       "Quality · Care · Supply",
       "quotes@gjpremium.com · +1 (555) 014-2200 · Mon–Fri, 8:00–18:00 ET",
     ].join("\n");
@@ -106,12 +106,12 @@ export const sendQuoteConfirmation = internalAction({
         `<strong>Facility:</strong> ${escapeHtml(args.organization)}</p>`,
       "<p><strong>What happens next</strong></p>",
       "<ol>",
-      "<li>We review your request — items, pack sizes, and availability.</li>",
+      "<li>We review your request: items, pack sizes, and availability.</li>",
       "<li>You receive pricing, availability, and a delivery window within one business day.</li>",
       "<li>You approve the quote, and we schedule fulfillment.</li>",
       "</ol>",
       "<p>Questions? Just reply to this email.</p>",
-      "<p>— GJ Premium<br/>Quality · Care · Supply<br/>quotes@gjpremium.com · +1 (555) 014-2200 · Mon–Fri, 8:00–18:00 ET</p>",
+      "<p>GJ Premium<br/>Quality · Care · Supply<br/>quotes@gjpremium.com · +1 (555) 014-2200 · Mon–Fri, 8:00–18:00 ET</p>",
     ].join("");
 
     await agentMailRequest(apiKey, `/inboxes/${encodeURIComponent(inboxId)}/messages/send`, {

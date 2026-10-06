@@ -5,7 +5,7 @@ export const BRAND_NAVY = "#0c4f8e";
 export const BRAND_TEAL = "#1ba5a6";
 
 /**
- * GJ Premium wordmark — the brand set as text only, with no symbol.
+ * GJ Premium wordmark: the brand set as text only, with no symbol.
  * - `orientation="inline"`: single-line "GJ Premium" (header)
  * - `orientation="stacked"`: "GJ / Premium" over two lines (footer)
  */
