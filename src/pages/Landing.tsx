@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { PRODUCT_CATEGORIES } from "@/lib/catalog";
+import { usePageSeo } from "@/lib/seo";
 import { ArrowRight, Check } from "lucide-react";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router";
@@ -83,8 +84,133 @@ const REQUEST_LINES = [
   { item: "Oximeter sensor strips", qty: "40 ea" },
 ];
 
+const PROMISE = [
+  {
+    number: "01",
+    title: "Within one business day",
+    description:
+      "Every request gets a written reply with pricing, availability and a delivery window — or a clear reason why we can't quote it.",
+  },
+  {
+    number: "02",
+    title: "In writing, with a reference",
+    description:
+      "The quote arrives by email under your reference number, so there is a record you can compare, forward, and reply to.",
+  },
+  {
+    number: "03",
+    title: "No waiting on us",
+    description:
+      "If something in your list is ambiguous, we ask before quoting instead of going quiet — one specialist owns the thread.",
+  },
+];
+
+const CASE_STUDIES = [
+  {
+    label: "Multi-site dental group",
+    title: "Four locations, one order list",
+    challenge:
+      "Each clinic bought separately, at different prices, from different reps — and nobody could see the total.",
+    approach:
+      "One shared assortment and price list across the group, ordered through a single contact and delivered on one schedule.",
+    outcome:
+      "One invoice, one person to call, and no per-site reordering.",
+  },
+  {
+    label: "Home health agency",
+    title: "Wound kits built to the care plan",
+    challenge:
+      "Nurses were assembling dressing kits by hand before every visit, and running out of the slow movers at short notice.",
+    approach:
+      "Pre-assembled kits matched to their four most common care plans, replenished against a standing list.",
+    outcome:
+      "Less time picking, fewer emergency orders, kits that match the plan.",
+  },
+  {
+    label: "Rural urgent-care clinic",
+    title: "Covering the gaps in a small store room",
+    challenge:
+      "Low volumes meant high minimums, long lead times, and discontinued lines arriving as surprises.",
+    approach:
+      "Quantities quoted in the pack sizes they actually use, with equivalents proposed whenever a line was discontinued.",
+    outcome:
+      "Stock that turns before it expires, and no dead ends on a reorder.",
+  },
+];
+
+const FAQ: {
+  question: string;
+  answer: string;
+  link?: { label: string; to: string };
+}[] = [
+  {
+    question: "How quickly will I get a quote?",
+    answer:
+      "Within one business day. You get pricing, availability, and a delivery window in writing, under a reference number.",
+  },
+  {
+    question: "Do I need an account to order?",
+    answer:
+      "No. There is nothing to sign up for — one short form, and a supply specialist replies to your work email.",
+  },
+  {
+    question: "What should I include in the request?",
+    answer:
+      "Items and quantities, your delivery location, and your needed-by date. Model numbers help, but plain descriptions are fine.",
+    link: { label: "See what to include", to: "/quote#checklist" },
+  },
+  {
+    question: "Does it cost anything to request a quote?",
+    answer:
+      "Nothing. Quotes are free and carry no obligation — the figure arrives so you can compare it against what you pay today.",
+  },
+  {
+    question: "Who do you supply?",
+    answer:
+      "Clinics, medical practices, laboratories, pharmacies, dental practices, long-term care and home-health agencies — across all ten categories we stock.",
+    link: { label: "See the categories", to: "/products" },
+  },
+  {
+    question: "What if an item isn't in your list?",
+    answer:
+      "Send it anyway. Catalogue names differ between suppliers; we sort your list into the right categories, and propose equivalents where a line is discontinued.",
+    link: { label: "See how sourcing works", to: "/products#categories" },
+  },
+  {
+    question: "How long is a quote valid?",
+    answer:
+      "The validity period is stated on the quote itself, so you have a date you can plan a decision around rather than a moving target.",
+  },
+  {
+    question: "Where do you deliver, and how fast?",
+    answer:
+      "Delivery is quoted per request: include your address or service region and the quote comes back with a delivery window for that location.",
+  },
+];
+
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 export default function Landing() {
   const location = useLocation();
+
+  usePageSeo({
+    title: "GJ Premium — Medical Supply, Quoted in One Business Day",
+    description:
+      "GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day.",
+    path: "/",
+    jsonLd: [FAQ_JSON_LD],
+  });
 
   // Arriving from another route: start at the top…
   useEffect(() => {
@@ -409,6 +535,196 @@ export default function Landing() {
               </div>
             </div>
           </FadeIn>
+        </section>
+
+        {/* ── Response-time promise ───────────────────────────── */}
+        <section
+          id="promise"
+          className="scroll-mt-16 border-y border-border bg-muted/40"
+        >
+          <div className={`${CONTAINER} py-20 md:py-24`}>
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+              <FadeIn className="lg:col-span-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
+                  Response-time promise
+                </p>
+                <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+                  One business day, in writing.
+                </h2>
+                <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
+                  If we ever miss it, you get a reason and a revised date the
+                  same way — you should never be left wondering whether
+                  anyone read your request.
+                </p>
+                <div className="mt-8">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full px-7 text-[15px]"
+                  >
+                    <Link to="/quote">
+                      Request a quote
+                      <ArrowRight className="size-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </FadeIn>
+
+              <FadeIn className="lg:col-span-6 lg:col-start-7" delay={0.1}>
+                <ol className="border-t border-border">
+                  {PROMISE.map((item) => (
+                    <li
+                      key={item.number}
+                      className="flex gap-5 border-b border-border py-6"
+                    >
+                      <span className="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">
+                        {item.number}
+                      </span>
+                      <div>
+                        <p className="text-base font-medium">{item.title}</p>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Case studies ────────────────────────────────────── */}
+        <section id="cases" className="scroll-mt-16">
+          <div className={`${CONTAINER} py-20 md:py-28`}>
+            <FadeIn>
+              <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
+                <div className="lg:col-span-7">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
+                    Case studies
+                  </p>
+                  <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+                    How supply actually gets fixed.
+                  </h2>
+                </div>
+                <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
+                  Three real shapes of problem — bought in parallel, picked by
+                  hand, and stranded on a long lead time — and what changed
+                  once the list moved to one supplier.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {CASE_STUDIES.map((study, index) => (
+                <FadeIn
+                  key={study.title}
+                  delay={index * 0.07}
+                  className="h-full"
+                >
+                  <article className="flex h-full flex-col border border-border p-6 md:p-7">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-brand-navy">
+                      {study.label}
+                    </p>
+                    <h3 className="mt-4 text-lg font-medium leading-snug">
+                      {study.title}
+                    </h3>
+                    <dl className="mt-6 space-y-4 text-sm">
+                      <div>
+                        <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                          Challenge
+                        </dt>
+                        <dd className="mt-1.5 leading-relaxed text-muted-foreground">
+                          {study.challenge}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                          What we did
+                        </dt>
+                        <dd className="mt-1.5 leading-relaxed text-muted-foreground">
+                          {study.approach}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                          Outcome
+                        </dt>
+                        <dd className="mt-1.5 leading-relaxed text-foreground">
+                          {study.outcome}
+                        </dd>
+                      </div>
+                    </dl>
+                  </article>
+                </FadeIn>
+              ))}
+            </div>
+
+            <FadeIn className="mt-10" delay={0.1}>
+              <p className="text-sm text-muted-foreground">
+                Facing something similar?{" "}
+                <Link
+                  to="/quote"
+                  className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                >
+                  Tell us what you need
+                </Link>{" "}
+                — you get the fix priced back within one business day.
+              </p>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* ── FAQ ─────────────────────────────────────────────── */}
+        <section id="faq" className="scroll-mt-16 border-t border-border">
+          <div className={`${CONTAINER} py-20 md:py-28`}>
+            <FadeIn>
+              <div className="grid gap-6 lg:grid-cols-12 lg:gap-16">
+                <div className="lg:col-span-7">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
+                    FAQ
+                  </p>
+                  <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+                    Questions, answered.
+                  </h2>
+                </div>
+                <p className="text-base leading-relaxed text-muted-foreground lg:col-span-5">
+                  Anything not covered here?{" "}
+                  <Link
+                    to="/quote"
+                    className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                  >
+                    Ask in the quote form
+                  </Link>{" "}
+                  — the notes field reaches the same specialist.
+                </p>
+              </div>
+            </FadeIn>
+
+            <dl className="mt-12 border-t border-border">
+              {FAQ.map((item) => (
+                <div
+                  key={item.question}
+                  className="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12"
+                >
+                  <dt className="text-base font-medium md:col-span-5">
+                    {item.question}
+                  </dt>
+                  <dd className="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">
+                    {item.answer}{" "}
+                    {item.link && (
+                      <Link
+                        to={item.link.to}
+                        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                      >
+                        {item.link.label}
+                      </Link>
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </section>
 
         {/* ── Closing CTA ──────────────────────────────────────── */}

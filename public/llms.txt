@@ -1,0 +1,23 @@
+# GJ Premium
+
+> GJ Premium is a medical supply company. It supplies clinics, medical
+> practices, laboratories, pharmacies and care facilities with everyday
+> patient-care consumables across ten product categories, and returns a
+> written quote (pricing, availability and delivery window) within one
+> business day. Orders are requested through a single public form; no
+> account is required.
+
+The company's contact details: quotes@gjpremium.com · +1 (555) 014-2200 ·
+Monday to Friday, 08:00–18:00 ET.
+
+## Product categories
+
+Ten categories are supplied: Wound care, Diabetes care, Infusion & vascular
+access, Medical nutrition, Continence drainage, Incontinence absorbing,
+Nursing & facilities, Personal care, Personal protection, and Surgical & OR.
+
+## Optional
+
+- [Full category list with typical line items](https://gjpremium.com/products): every category, what it covers, and example items.
+- [Request a quote](https://gjpremium.com/quote): the single form used to request pricing; fields are contact, facility, items and quantities, delivery location and needed-by date.
+- [Privacy policy](https://gjpremium.com/privacy): how request data is stored, used and retained.

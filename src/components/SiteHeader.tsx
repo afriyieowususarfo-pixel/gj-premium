@@ -1,4 +1,5 @@
 import { BrandLogo } from "@/components/BrandLogo";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -28,7 +29,8 @@ export function SiteHeader() {
   }, [location.pathname, location.hash]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+    <>
+      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 lg:px-8">
         <Link
           to="/"
@@ -74,6 +76,8 @@ export function SiteHeader() {
           </Link>
         </Button>
       </div>
-    </header>
+      </header>
+      <MobileCtaBar />
+    </>
   );
 }

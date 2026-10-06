@@ -1,8 +1,10 @@
 import { FadeIn } from "@/components/FadeIn";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
 import { PRODUCT_CATEGORIES, quotePathFor } from "@/lib/catalog";
+import { breadcrumbJsonLd, usePageSeo } from "@/lib/seo";
 import { ArrowRight, Check } from "lucide-react";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router";
@@ -39,6 +41,19 @@ const ASSURANCES = [
 export default function Products() {
   const location = useLocation();
 
+  usePageSeo({
+    title: "Medical supply product categories | GJ Premium",
+    description:
+      "The ten medical supply categories GJ Premium stocks — wound care, diabetes care, infusion, nutrition, continence, nursing, personal care, protection and surgical — with typical line items and one quote form.",
+    path: "/products",
+    jsonLd: [
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+      ]),
+    ],
+  });
+
   // Arriving from another route: start at the top…
   useEffect(() => {
     if (!location.hash) window.scrollTo(0, 0);
@@ -68,6 +83,10 @@ export default function Products() {
             className={`${CONTAINER} grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-16`}
           >
             <FadeIn className="lg:col-span-6">
+              <Breadcrumbs
+                items={[{ label: "Products" }]}
+                className="mb-7"
+              />
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
                 Products
               </p>

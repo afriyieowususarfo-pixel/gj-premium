@@ -1,12 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from "@/hooks/use-auth";
+import { usePageSeo } from "@/lib/seo";
 import { LayoutDashboard, LogOut } from "lucide-react";
 import { useNavigate } from "react-router";
 
 export default function Dashboard() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+
+  usePageSeo({
+    title: "Dashboard | GJ Premium",
+    description: "Your GJ Premium workspace.",
+    path: "/dashboard",
+    noindex: true,
+  });
 
   const handleSignOut = async () => {
     await signOut();

@@ -6,6 +6,8 @@ import { Link } from "react-router";
 const SITE_LINKS = [
   { label: "Overview", to: "/#overview" },
   { label: "Products", to: "/products" },
+  { label: "FAQ", to: "/#faq" },
+  { label: "Case studies", to: "/#cases" },
   { label: "Quote process", to: "/#process" },
 ];
 
@@ -40,7 +42,7 @@ function FooterColumn({
 export function SiteFooter() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto w-full max-w-6xl px-6 py-14 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-6 pt-14 pb-28 md:pb-14 lg:px-8">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <BrandLogo orientation="stacked" tagline />

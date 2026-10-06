@@ -1,5 +1,7 @@
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { breadcrumbJsonLd, usePageSeo } from "@/lib/seo";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router";
 
@@ -183,6 +185,10 @@ function PageHeader() {
   return (
     <section className="border-b border-border">
       <div className={`${CONTAINER} py-14 md:py-16`}>
+        <Breadcrumbs
+          items={[{ label: "Privacy policy" }]}
+          className="mb-7"
+        />
         <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
           Legal
         </p>
@@ -202,6 +208,19 @@ function PageHeader() {
 
 export default function Privacy() {
   const location = useLocation();
+
+  usePageSeo({
+    title: "Privacy policy | GJ Premium",
+    description:
+      "How GJ Premium collects, uses and retains the details you send through the quote form, what we never do with them, and the choices you have.",
+    path: "/privacy",
+    jsonLd: [
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Privacy policy", path: "/privacy" },
+      ]),
+    ],
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);

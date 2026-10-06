@@ -1,4 +1,4 @@
-import { FadeIn } from "@/components/FadeIn";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
@@ -14,10 +14,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { api } from "@/convex/_generated/api";
 import { CATEGORY_OPTIONS } from "@/lib/catalog";
+import { breadcrumbJsonLd, usePageSeo } from "@/lib/seo";
 import { useMutation } from "convex/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { Link, useLocation, useSearchParams } from "react-router";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-6 lg:px-8";
 
@@ -223,8 +224,22 @@ function SelectField({
 
 export default function Quote() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const submitQuote = useMutation(api.quoteRequests.submit);
+
+  usePageSeo({
+    title: "Request a quote | GJ Premium",
+    description:
+      "One short form for clinics, practices, labs and care facilities: items, quantities, delivery location and timing. Pricing, availability and a delivery window back within one business day.",
+    path: "/quote",
+    jsonLd: [
+      breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Request a quote", path: "/quote" },
+      ]),
+    ],
+  });
 
   // Arriving from a category link (/quote?category=Wound%20care) preselects it.
   const [form, setForm] = useState<FormState>(() => {
@@ -236,12 +251,6 @@ export default function Quote() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [confirmation, setConfirmation] = useState<{
-    reference: string;
-    email: string;
-    organization: string;
-    neededBy: string;
-  } | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -292,13 +301,8 @@ export default function Quote() {
         location: form.location.trim(),
         notes: form.notes.trim() || undefined,
       });
-      setConfirmation({
-        reference,
-        email: form.email.trim(),
-        organization: form.organization.trim(),
-        neededBy: form.neededBy,
-      });
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      // The thank-you page carries the reference, so the form resets cleanly.
+      navigate(`/thank-you?ref=${encodeURIComponent(reference)}`);
     } catch {
       setSubmitError(
         "We couldn't send your request. Please try again, or email quotes@gjpremium.com.",
@@ -306,13 +310,6 @@ export default function Quote() {
     } finally {
       setIsSubmitting(false);
     }
-  }
-
-  function resetForm() {
-    setForm(EMPTY_FORM);
-    setErrors({});
-    setSubmitError(null);
-    setConfirmation(null);
   }
 
   return (
@@ -323,6 +320,10 @@ export default function Quote() {
         {/* ── Page header ──────────────────────────────────────── */}
         <section className="photo-wash border-b border-border">
           <div className={`${CONTAINER} py-14 md:py-16`}>
+            <Breadcrumbs
+              items={[{ label: "Request a quote" }]}
+              className="mb-7"
+            />
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
               Request a quote
             </p>
@@ -342,66 +343,9 @@ export default function Quote() {
         <div
           className={`${CONTAINER} grid gap-12 py-14 md:py-16 lg:grid-cols-12 lg:gap-16`}
         >
-          {/* ── Form (or confirmation) ─────────────────────────── */}
+          {/* ── Form ─────────────────────────── */}
           <div className="lg:col-span-7">
-            {confirmation ? (
-              <FadeIn>
-                <div className="border border-border p-7 md:p-10">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-brand-teal/10">
-                    <Check
-                      className="size-5 text-brand-teal"
-                      strokeWidth={2.5}
-                    />
-                  </span>
-                  <h2 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">
-                    Request received.
-                  </h2>
-                  <p className="mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
-                    Your reference is{" "}
-                    <span className="font-medium tabular-nums text-foreground">
-                      {confirmation.reference}
-                    </span>
-                    . A confirmation and your quote will be sent to{" "}
-                    <span className="text-foreground">
-                      {confirmation.email}
-                    </span>{" "}
-                    within one business day.
-                  </p>
-
-                  <dl className="mt-8 border-t border-border text-sm">
-                    <div className="flex items-baseline justify-between gap-4 border-b border-border py-3.5">
-                      <dt className="text-muted-foreground">Facility</dt>
-                      <dd className="text-right font-medium">
-                        {confirmation.organization}
-                      </dd>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 border-b border-border py-3.5">
-                      <dt className="text-muted-foreground">Needed by</dt>
-                      <dd className="text-right font-medium">
-                        {confirmation.neededBy}
-                      </dd>
-                    </div>
-                  </dl>
-
-                  <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                    <Button
-                      onClick={resetForm}
-                      variant="outline"
-                      className="rounded-full px-6"
-                    >
-                      Submit another request
-                    </Button>
-                    <Link
-                      to="/"
-                      className="text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-                    >
-                      Back to home
-                    </Link>
-                  </div>
-                </div>
-              </FadeIn>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-9">
+            <form onSubmit={handleSubmit} noValidate className="space-y-9">
                 <FormSection
                   number="01"
                   title="Contact"
@@ -610,7 +554,6 @@ export default function Quote() {
                   </p>
                 </div>
               </form>
-            )}
           </div>
 
           {/* ── Aside ──────────────────────────────────────────── */}

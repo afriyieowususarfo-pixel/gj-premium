@@ -1,5 +1,6 @@
 import '@vly-ai/integrations';
 import { Toaster } from "@/components/ui/sonner";
+import { initAnalytics, trackPageView } from "@/lib/analytics";
 import { RequireAuth } from "@/components/RequireAuth";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
@@ -13,6 +14,7 @@ import "./index.css";
 const Landing = lazy(() => import("./pages/Landing.tsx"));
 const Products = lazy(() => import("./pages/Products.tsx"));
 const Quote = lazy(() => import("./pages/Quote.tsx"));
+const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
 const Privacy = lazy(() => import("./pages/Privacy.tsx"));
 const AuthPage = lazy(() => import("./pages/Auth.tsx"));
 const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
@@ -89,7 +91,14 @@ const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
 function RouteSyncer() {
   const location = useLocation();
+
+  // Analytics (loaded only when VITE_GA_ID is configured).
   useEffect(() => {
+    initAnalytics();
+  }, []);
+
+  useEffect(() => {
+    trackPageView(location.pathname);
     window.parent.postMessage(
       { type: "iframe-route-change", path: location.pathname },
       "*",
@@ -125,6 +134,7 @@ createRoot(document.getElementById("root")!).render(
               <Route path="/" element={<Landing />} />
               <Route path="/products" element={<Products />} />
               <Route path="/quote" element={<Quote />} />
+              <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route
                 path="/auth"
