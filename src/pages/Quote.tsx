@@ -321,7 +321,7 @@ export default function Quote() {
 
       <main>
         {/* ── Page header ──────────────────────────────────────── */}
-        <section className="border-b border-border">
+        <section className="photo-wash border-b border-border">
           <div className={`${CONTAINER} py-14 md:py-16`}>
             <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">
               Request a quote

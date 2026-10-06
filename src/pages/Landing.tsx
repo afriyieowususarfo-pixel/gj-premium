@@ -110,7 +110,10 @@ export default function Landing() {
 
       <main>
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section id="overview" className="scroll-mt-16 border-b border-border">
+        <section
+          id="overview"
+          className="photo-wash scroll-mt-16 border-b border-border"
+        >
           <div
             className={`${CONTAINER} grid items-center gap-12 pb-16 pt-16 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-16`}
           >

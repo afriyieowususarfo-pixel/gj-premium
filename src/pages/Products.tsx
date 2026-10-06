@@ -63,7 +63,7 @@ export default function Products() {
 
       <main>
         {/* ── Page header ──────────────────────────────────────── */}
-        <section className="border-b border-border">
+        <section className="photo-wash border-b border-border">
           <div
             className={`${CONTAINER} grid gap-10 py-14 md:py-20 lg:grid-cols-12 lg:gap-16`}
           >
