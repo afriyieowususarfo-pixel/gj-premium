@@ -151,10 +151,10 @@ export default function ThankYou() {
                 <div className="mt-3 space-y-1 text-sm">
                   <p>
                     <a
-                      href="mailto:quotes@gjpremium.com"
+                      href="mailto:gjpremium14@gmail.com"
                       className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                     >
-                      quotes@gjpremium.com
+                      gjpremium14@gmail.com
                     </a>
                   </p>
                   <p className="text-muted-foreground">

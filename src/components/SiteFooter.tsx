@@ -17,8 +17,8 @@ const QUOTE_LINKS = [
 ];
 
 const CONTACT_LINKS = [
-  { label: "quotes@gjpremium.com", href: "mailto:quotes@gjpremium.com" },
-  { label: "+1 (555) 014-2200", href: "tel:+15550142200" },
+  { label: "gjpremium14@gmail.com", href: "mailto:gjpremium14@gmail.com" },
+  { label: "+44 7485 206665", href: "tel:+447485206665" },
   { label: "Mon–Fri, 8:00–18:00 ET", href: undefined },
 ];
 

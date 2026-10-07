@@ -12,7 +12,7 @@ import { internalAction } from "./_generated/server";
 const API_BASE = "https://api.agentmail.to/v0";
 /** Fixed client_id makes inbox creation idempotent (safe on every quote). */
 const INBOX_CLIENT_ID = "gj-premium-quotes-v1";
-const REPLY_TO = "quotes@gjpremium.com";
+const REPLY_TO = "gjpremium14@gmail.com";
 
 async function agentMailRequest(
   apiKey: string,
@@ -96,7 +96,7 @@ export const sendQuoteConfirmation = internalAction({
       "",
       "GJ Premium",
       "Quality · Care · Supply",
-      "quotes@gjpremium.com · +1 (555) 014-2200 · Mon–Fri, 8:00–18:00 ET",
+      "gjpremium14@gmail.com · +44 7485 206665 · Mon–Fri, 8:00–18:00 ET",
     ].join("\n");
 
     const html = [
@@ -111,7 +111,7 @@ export const sendQuoteConfirmation = internalAction({
       "<li>You approve the quote, and we schedule fulfillment.</li>",
       "</ol>",
       "<p>Questions? Just reply to this email.</p>",
-      "<p>GJ Premium<br/>Quality · Care · Supply<br/>quotes@gjpremium.com · +1 (555) 014-2200 · Mon–Fri, 8:00–18:00 ET</p>",
+      "<p>GJ Premium<br/>Quality · Care · Supply<br/>gjpremium14@gmail.com · +44 7485 206665 · Mon–Fri, 8:00–18:00 ET</p>",
     ].join("");
 
     await agentMailRequest(apiKey, `/inboxes/${encodeURIComponent(inboxId)}/messages/send`, {

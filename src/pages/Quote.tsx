@@ -305,7 +305,7 @@ export default function Quote() {
       navigate(`/thank-you?ref=${encodeURIComponent(reference)}`);
     } catch {
       setSubmitError(
-        "We couldn't send your request. Please try again, or email quotes@gjpremium.com.",
+        "We couldn't send your request. Please try again, or email gjpremium14@gmail.com.",
       );
     } finally {
       setIsSubmitting(false);
@@ -610,18 +610,18 @@ export default function Quote() {
                 <div className="mt-3 space-y-1 text-sm">
                   <p>
                     <a
-                      href="mailto:quotes@gjpremium.com"
+                      href="mailto:gjpremium14@gmail.com"
                       className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                     >
-                      quotes@gjpremium.com
+                      gjpremium14@gmail.com
                     </a>
                   </p>
                   <p>
                     <a
-                      href="tel:+15550142200"
+                      href="tel:+447485206665"
                       className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                     >
-                      +1 (555) 014-2200
+                      +44 7485 206665
                     </a>
                   </p>
                   <p className="text-muted-foreground">Mon–Fri, 8:00–18:00 ET</p>

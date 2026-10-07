@@ -145,10 +145,10 @@ const SECTIONS = [
         <p className="mt-4">
           To exercise any of these, email{" "}
           <a
-            href="mailto:quotes@gjpremium.com"
+            href="mailto:gjpremium14@gmail.com"
             className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
           >
-            quotes@gjpremium.com
+            gjpremium14@gmail.com
           </a>
           . We respond within 30 days, and sooner where local law requires it.
         </p>
@@ -290,18 +290,18 @@ export default function Privacy() {
                 <div className="mt-4 space-y-1.5 text-sm">
                   <p>
                     <a
-                      href="mailto:quotes@gjpremium.com"
+                      href="mailto:gjpremium14@gmail.com"
                       className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                     >
-                      quotes@gjpremium.com
+                      gjpremium14@gmail.com
                     </a>
                   </p>
                   <p>
                     <a
-                      href="tel:+15550142200"
+                      href="tel:+447485206665"
                       className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                     >
-                      +1 (555) 014-2200
+                      +44 7485 206665
                     </a>
                   </p>
                   <p className="text-muted-foreground">Mon–Fri, 8:00–18:00 ET</p>
