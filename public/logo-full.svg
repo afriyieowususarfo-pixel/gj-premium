@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 770 213" role="img" aria-label="GJ Premium">
+  <title>GJ Premium</title>
+  <!-- Monogram: navy orbit ring, open on the right where the J passes through -->
+  <path d="M 200 155 A 88 88 0 1 1 200 53" fill="none" stroke="#0c4f8e" stroke-width="24" stroke-linecap="round"/>
+  <!-- Teal sparkle inside the ring -->
+  <path d="M 110 52 C 114 84 126 96 160 102 C 126 108 114 120 110 152 C 106 120 94 108 60 102 C 94 96 106 84 110 52 Z" fill="#1ba5a6"/>
+  <!-- Teal J with the sweeping tail -->
+  <path d="M 214 20 L 214 120 C 214 164 178 192 126 193 C 82 194 44 180 16 148" fill="none" stroke="#1ba5a6" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wordmark -->
+  <text x="288" y="95" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="112" font-weight="800" fill="#0c4f8e" textLength="172" lengthAdjust="spacingAndGlyphs">GJ</text>
+  <text x="288" y="172" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="96" font-weight="800" fill="#1ba5a6" textLength="437" lengthAdjust="spacingAndGlyphs">Premium</text>
+  <!-- Tagline with teal sparkle separators -->
+  <text x="288" y="205" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" fill="#0c4f8e" textLength="150" lengthAdjust="spacing">QUALITY</text>
+  <path d="M 458 187 C 459 193 461 195 467 196 C 461 197 459 199 458 205 C 457 199 455 197 449 196 C 455 195 457 193 458 187 Z" fill="#1ba5a6"/>
+  <text x="478" y="205" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" fill="#0c4f8e" textLength="92" lengthAdjust="spacing">CARE</text>
+  <path d="M 590 187 C 591 193 593 195 599 196 C 593 197 591 199 590 205 C 589 199 587 197 581 196 C 587 195 589 193 590 187 Z" fill="#1ba5a6"/>
+  <text x="610" y="205" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" fill="#0c4f8e" textLength="140" lengthAdjust="spacing">SUPPLY</text>
+</svg>
