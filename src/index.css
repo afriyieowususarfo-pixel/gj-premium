@@ -43,15 +43,18 @@
 }
 
 /* Brand accents sampled from the GJ Premium logo (navy + teal).
-   Used sparingly against an otherwise near-monochrome palette. */
-@theme {
-  --color-brand-navy: #0c4f8e;
-  --color-brand-teal: #1ba5a6;
+   Mapped through theme vars so they adapt in dark mode (see .dark below). */
+@theme inline {
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-teal: var(--brand-teal);
 }
 
 /* CHANGE VALUES FOR THEME */
 :root {
   --radius: 0.375rem;
+  /* Brand accents (light mode). */
+  --brand-navy: #0c4f8e;
+  --brand-teal: #1ba5a6;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -86,6 +89,10 @@
 }
 
 .dark {
+  /* Brand accents lifted for contrast against the dark background,
+     keeping the same navy/teal identity. */
+  --brand-navy: #6aa7dd;
+  --brand-teal: #2fc3c4;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -170,7 +177,7 @@
     text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: color-mix(in oklab, var(--color-brand-teal, #1ba5a6) 24%, transparent);
+    background: color-mix(in oklab, var(--brand-teal, #1ba5a6) 28%, transparent);
   }
   button:not([disabled]),
   [role="button"]:not([disabled]) {

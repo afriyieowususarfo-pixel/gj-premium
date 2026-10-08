@@ -6,9 +6,10 @@ export const BRAND_TEAL = "#1ba5a6";
 
 /**
  * GJ Premium logo: the full lockup (monogram with sparkle and swoosh,
- * "GJ Premium" wordmark, and the Quality · Care · Supply tagline) served
- * from /logo-full.svg. To swap in a new logo file, replace that asset; no
- * code changes needed.
+ * "GJ Premium" wordmark, and the Quality · Care · Supply tagline).
+ * The light artwork lives in /logo-full.svg and a variant with lifted
+ * navy/teal in /logo-full-dark.svg; the `.dark` class (toggled by
+ * next-themes, following the OS setting) picks between them.
  * - `orientation="inline"`: header size
  * - `orientation="stacked"`: larger size for the footer block
  */
@@ -24,14 +25,24 @@ export function BrandLogo({
   // The tagline is part of the artwork; the prop is kept so existing
   // call sites stay meaningful (and picks the larger size when set).
   const large = orientation === "stacked" || tagline;
+  const size = cn("h-9 w-auto", large && "h-12", className);
 
   return (
-    <img
-      src="/logo-full.svg"
-      alt="GJ Premium logo"
-      width={770}
-      height={213}
-      className={cn("h-9 w-auto", large && "h-12", className)}
-    />
+    <>
+      <img
+        src="/logo-full.svg"
+        alt="GJ Premium logo"
+        width={770}
+        height={213}
+        className={cn("block dark:hidden", size)}
+      />
+      <img
+        src="/logo-full-dark.svg"
+        alt="GJ Premium logo"
+        width={770}
+        height={213}
+        className={cn("hidden dark:block", size)}
+      />
+    </>
   );
 }
