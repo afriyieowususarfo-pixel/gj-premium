@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)" />
+  <script>
+    // Apply the saved/system theme before first paint (matches next-themes'
+    // storage key and values) so there is no flash of the wrong theme.
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        var dark =
+          stored === "dark" ||
+          ((stored === null || stored === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      } catch (e) {
+        /* storage blocked: fall back to the default light theme */
+      }
+    })();
+  </script>
+  <title>GJ Premium | Medical Supply, Quoted in One Business Day</title>
+  <meta name="description"
+    content="GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day." />
+  <link rel="canonical" href="https://gjpremium.com/" />
+
+  <!-- Social share (overwritten per page at runtime by src/lib/seo.ts) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GJ Premium" />
+  <meta property="og:title" content="GJ Premium | Medical Supply, Quoted in One Business Day" />
+  <meta property="og:description"
+    content="Ten medical supply categories, one short quote form, a written response within one business day." />
+  <meta property="og:url" content="https://gjpremium.com/" />
+  <meta property="og:image" content="https://gjpremium.com/pills-heart.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GJ Premium | Medical Supply, Quoted in One Business Day" />
+  <meta name="twitter:description"
+    content="Ten medical supply categories, one short quote form, a written response within one business day." />
+  <meta name="twitter:image" content="https://gjpremium.com/pills-heart.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!--
+    Organization / local business data. `address` is intentionally omitted;
+    add your street address and postal code here as soon as they are final,
+    it is what powers "local" map results.
+  -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "GJ Premium",
+      "description": "Medical supply company supplying clinics, practices, laboratories and care facilities across ten product categories, with quotes returned within one business day.",
+      "url": "https://gjpremium.com/",
+      "logo": "https://gjpremium.com/logo.svg",
+      "image": "https://gjpremium.com/pills-heart.jpg",
+      "email": "gjpremium14@gmail.com",
+      "telephone": "+447485206665",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "gjpremium14@gmail.com",
+          "telephone": "+447485206665",
+          "availableLanguage": ["English"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        }
+      ],
+      "areaServed": "US"
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-DqygD9ah.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/react-vendor-DjQq-2oL.js">
+  <link rel="modulepreload" crossorigin href="/assets/framer-motion-CpHymQs2.js">
+  <link rel="modulepreload" crossorigin href="/assets/radix-ui-VveX30dn.js">
+  <link rel="modulepreload" crossorigin href="/assets/charts-DQUv1RkR.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-DCSwpZkW.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

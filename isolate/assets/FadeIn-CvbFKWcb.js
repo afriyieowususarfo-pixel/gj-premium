@@ -1,0 +1,1 @@
+import{u as r,j as t,m as u}from"./framer-motion-CpHymQs2.js";function d({children:i,className:o,delay:e=0,y:n=18}){return r()?t.jsx("div",{className:o,children:i}):t.jsx(u.div,{className:o,initial:{opacity:0,y:n},whileInView:{opacity:1,y:0},viewport:{once:!0,margin:"-60px"},transition:{duration:.55,delay:e,ease:[.22,1,.36,1]},children:i})}export{d as F};

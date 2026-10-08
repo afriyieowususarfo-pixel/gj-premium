@@ -1,0 +1,17 @@
+{
+  "name": "GJ Premium | Medical Supply",
+  "short_name": "GJ Premium",
+  "description": "Ten medical supply categories, quoted in one business day. For clinics, practices, labs and care facilities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
