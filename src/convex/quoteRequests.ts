@@ -5,6 +5,30 @@ import { mutation } from "./_generated/server";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
+ * Least-privilege input bounds for the public endpoint. Caps are far above
+ * anything the quote form produces, but stop a direct API caller from
+ * storing megabyte-scale documents in the database.
+ */
+const MAX_LENGTHS = {
+  fullName: 200,
+  organization: 200,
+  email: 254,
+  phone: 50,
+  facilityType: 100,
+  category: 100,
+  items: 5000,
+  neededBy: 100,
+  location: 500,
+  notes: 5000,
+} as const;
+
+function assertMax(label: string, value: string | undefined, max: number) {
+  if (value !== undefined && value.length > max) {
+    throw new Error(`${label} is too long (max ${max} characters).`);
+  }
+}
+
+/**
  * Public quote-request submission. No account required: the site's whole
  * v1 flow funnels here.
  */
@@ -41,6 +65,17 @@ export const submit = mutation({
     if (items.length === 0) throw new Error("Requested items are required.");
     if (neededBy.length === 0) throw new Error("A needed-by timeframe is required.");
     if (location.length === 0) throw new Error("A delivery location is required.");
+
+    assertMax("Full name", fullName, MAX_LENGTHS.fullName);
+    assertMax("Organization", organization, MAX_LENGTHS.organization);
+    assertMax("Email", email, MAX_LENGTHS.email);
+    assertMax("Phone", phone, MAX_LENGTHS.phone);
+    assertMax("Facility type", facilityType, MAX_LENGTHS.facilityType);
+    assertMax("Category", category, MAX_LENGTHS.category);
+    assertMax("Items", items, MAX_LENGTHS.items);
+    assertMax("Needed-by", neededBy, MAX_LENGTHS.neededBy);
+    assertMax("Delivery location", location, MAX_LENGTHS.location);
+    assertMax("Notes", notes, MAX_LENGTHS.notes);
 
     const id = await ctx.db.insert("quoteRequests", {
       fullName,
