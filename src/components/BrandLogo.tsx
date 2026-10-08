@@ -5,8 +5,10 @@ export const BRAND_NAVY = "#0c4f8e";
 export const BRAND_TEAL = "#1ba5a6";
 
 /**
- * GJ Premium wordmark: plain text ("GJ" in navy, "Premium" in teal) so the
- * brand reads the same everywhere without an image asset.
+ * GJ Premium logo: the full lockup (monogram with sparkle and swoosh,
+ * "GJ Premium" wordmark, and the Quality · Care · Supply tagline) served
+ * from /logo-full.svg. To swap in a new logo file, replace that asset; no
+ * code changes needed.
  * - `orientation="inline"`: header size
  * - `orientation="stacked"`: larger size for the footer block
  */
@@ -19,18 +21,17 @@ export function BrandLogo({
   orientation?: "inline" | "stacked";
   tagline?: boolean;
 }) {
+  // The tagline is part of the artwork; the prop is kept so existing
+  // call sites stay meaningful (and picks the larger size when set).
   const large = orientation === "stacked" || tagline;
 
   return (
-    <span
-      className={cn(
-        "whitespace-nowrap font-bold tracking-tight leading-none",
-        large ? "text-2xl" : "text-lg",
-        className,
-      )}
-    >
-      <span className="text-brand-navy">GJ</span>{" "}
-      <span className="font-semibold text-brand-teal">Premium</span>
-    </span>
+    <img
+      src="/logo-full.svg"
+      alt="GJ Premium logo"
+      width={770}
+      height={213}
+      className={cn("h-9 w-auto", large && "h-12", className)}
+    />
   );
 }
