@@ -5,11 +5,9 @@ export const BRAND_NAVY = "#0c4f8e";
 export const BRAND_TEAL = "#1ba5a6";
 
 /**
- * GJ Premium logo: the full lockup (monogram with sparkle and swoosh,
- * "GJ Premium" wordmark, and the Quality · Care · Supply tagline).
- * The light artwork lives in /logo-full.svg and a variant with lifted
- * navy/teal in /logo-full-dark.svg; the `.dark` class (toggled by
- * next-themes, following the OS setting) picks between them.
+ * GJ Premium wordmark: plain text ("GJ" in brand navy, "Premium" in brand
+ * teal). The colors map to the theme vars in index.css, so they lift
+ * automatically in dark mode.
  * - `orientation="inline"`: header size
  * - `orientation="stacked"`: larger size for the footer block
  */
@@ -22,27 +20,20 @@ export function BrandLogo({
   orientation?: "inline" | "stacked";
   tagline?: boolean;
 }) {
-  // The tagline is part of the artwork; the prop is kept so existing
-  // call sites stay meaningful (and picks the larger size when set).
+  // `tagline` is kept so existing call sites stay meaningful
+  // (and picks the larger size when set).
   const large = orientation === "stacked" || tagline;
-  const size = cn("h-9 w-auto", large && "h-12", className);
 
   return (
-    <>
-      <img
-        src="/logo-full.svg"
-        alt="GJ Premium logo"
-        width={770}
-        height={213}
-        className={cn("block dark:hidden", size)}
-      />
-      <img
-        src="/logo-full-dark.svg"
-        alt="GJ Premium logo"
-        width={770}
-        height={213}
-        className={cn("hidden dark:block", size)}
-      />
-    </>
+    <span
+      className={cn(
+        "whitespace-nowrap font-bold tracking-tight leading-none",
+        large ? "text-2xl" : "text-lg",
+        className,
+      )}
+    >
+      <span className="text-brand-navy">GJ</span>{" "}
+      <span className="font-semibold text-brand-teal">Premium</span>
+    </span>
   );
 }
