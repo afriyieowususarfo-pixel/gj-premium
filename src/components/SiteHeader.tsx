@@ -1,7 +1,8 @@
 import { BrandLogo } from "@/components/BrandLogo";
 import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 
@@ -12,6 +13,31 @@ const NAV_LINKS: NavItem[] = [
   { label: "Products", to: "/products" },
   { label: "Process", to: "/", hash: "#process" },
 ];
+
+/**
+ * Light/dark switch, mirroring the static site's header toggle. The label
+ * names what the click will do next; `next-themes` persists the choice
+ * under localStorage["theme"], the same key the page's inline bootstrap
+ * reads before first paint. It resolves that theme synchronously on the
+ * first client render, so no mount gate is needed here.
+ */
+function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useTheme();
+  const dark = resolvedTheme === "dark";
+  const label = dark ? "Switch to light theme" : "Switch to dark theme";
+
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(dark ? "light" : "dark")}
+      aria-label={label}
+      title={label}
+      className="inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none"
+    >
+      {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+    </button>
+  );
+}
 
 export function SiteHeader() {
   const location = useLocation();
@@ -69,12 +95,15 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <Button asChild size="sm" className="rounded-full px-4 text-[13px]">
-            <Link to="/quote">
-              Request a quote
-              <ArrowRight className="size-3.5" />
-            </Link>
-          </Button>
+          <div className="flex items-center gap-2.5">
+            <ThemeToggle />
+            <Button asChild size="sm" className="rounded-full px-4 text-[13px]">
+              <Link to="/quote">
+                Request a quote
+                <ArrowRight className="size-3.5" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </header>
       <MobileCtaBar />

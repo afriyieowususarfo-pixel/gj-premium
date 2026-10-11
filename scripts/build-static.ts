@@ -64,6 +64,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Theme flip: a short colour fade, applied only for the ~300ms the
+   switch runs so ordinary hover transitions stay instant elsewhere.
+   Skipped under prefers-reduced-motion. */
+html.theme-switching,
+html.theme-switching * {
+  transition:
+    background-color 260ms ease, border-color 260ms ease, color 260ms ease,
+    box-shadow 260ms ease, fill 260ms ease !important;
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -73,6 +82,17 @@ html {
     transform: none;
     transition: none;
   }
+  html.theme-switching,
+  html.theme-switching * {
+    transition: none !important;
+  }
+}
+
+/* The theme toggle is script-driven: without JavaScript it would do
+   nothing, so it stays hidden. The page itself still follows the OS
+   colour scheme via the inline head bootstrap either way. */
+html:not(.js) [data-theme-toggle] {
+  display: none;
 }
 `;
 

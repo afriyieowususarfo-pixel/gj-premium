@@ -10,6 +10,8 @@
 import {
   BTN_PRIMARY_SM,
   iconArrowRight,
+  iconMoon,
+  iconSun,
 } from "./ui.ts";
 
 export const SITE_NAME = "GJ Premium";
@@ -83,9 +85,28 @@ export function siteHeader(): string {
               ${nav}
           </nav>
 
-          <a href="/quote/" class="${BTN_PRIMARY_SM}">Request a quote${iconArrowRight("size-3.5")}</a>
+          <div class="flex items-center gap-2.5">
+            ${themeToggle()}
+            <a href="/quote/" class="${BTN_PRIMARY_SM}">Request a quote${iconArrowRight("size-3.5")}</a>
+          </div>
         </div>
       </header>`;
+}
+
+/**
+ * Light/dark switch for the header. The icon swap is pure CSS (moon in
+ * light mode, sun in dark), so the correct icon shows before any script
+ * runs; site.js flips the `.dark` class, persists the choice to
+ * localStorage["theme"], and keeps the accessible label in step. Hidden
+ * when scripting is unavailable — see the `html:not(.js)` rule in the
+ * build's enhancements CSS — because a button that does nothing is worse
+ * than no button.
+ */
+export function themeToggle(): string {
+  return `<button type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" class="inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none">
+              ${iconMoon("size-4 dark:hidden")}
+              ${iconSun("hidden size-4 dark:block")}
+            </button>`;
 }
 
 /** Sticky phone-only call to action. Omitted on the quote form itself. */

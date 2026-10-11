@@ -275,6 +275,99 @@
     });
   }
 
+  // ── Light / dark theme ────────────────────────────────────────────
+  //
+  // The head bootstrap in each page already applies the saved theme before
+  // first paint (no flash); this adds the control that changes it. The
+  // choice is stored under localStorage["theme"] as "light" or "dark" —
+  // the same key and values next-themes uses — and until the visitor
+  // chooses, the page follows the OS and keeps following it.
+
+  var THEME_KEY = "theme";
+  var THEME_COLOR = { light: "#ffffff", dark: "#131313" };
+
+  function storedTheme() {
+    try {
+      var value = window.localStorage.getItem(THEME_KEY);
+      if (value === "light" || value === "dark") return value;
+    } catch (e) {
+      /* storage blocked (private mode, policy): follow the OS */
+    }
+    return null;
+  }
+
+  function activeTheme() {
+    return document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+  }
+
+  /** Accessible names describe what the click will do next, and the
+   *  browser-chrome colour is pinned to the page's actual theme so the
+   *  two can't disagree (the static metas answer to the OS instead). */
+  function syncThemeChrome() {
+    var next = activeTheme() === "dark" ? "light" : "dark";
+    var label =
+      next === "dark" ? "Switch to dark theme" : "Switch to light theme";
+
+    var toggles = document.querySelectorAll("[data-theme-toggle]");
+    for (var i = 0; i < toggles.length; i++) {
+      toggles[i].setAttribute("aria-label", label);
+      toggles[i].setAttribute("title", label);
+    }
+
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+    for (var j = 0; j < metas.length; j++) metas[j].parentNode.removeChild(metas[j]);
+    var meta = document.createElement("meta");
+    meta.setAttribute("name", "theme-color");
+    meta.setAttribute("content", THEME_COLOR[activeTheme()]);
+    document.head.appendChild(meta);
+  }
+
+  function applyTheme(theme, persist) {
+    var dark = theme === "dark";
+    var root = document.documentElement;
+    root.classList.toggle("dark", dark);
+    root.style.colorScheme = dark ? "dark" : "light";
+    if (persist) {
+      try {
+        window.localStorage.setItem(THEME_KEY, theme);
+      } catch (e) {
+        /* storage blocked: the change still applies to this page */
+      }
+    }
+    syncThemeChrome();
+  }
+
+  function initTheme() {
+    var toggles = document.querySelectorAll("[data-theme-toggle]");
+    if (!toggles.length) return;
+
+    // Labels and theme-color as soon as the page is interactive.
+    syncThemeChrome();
+
+    for (var i = 0; i < toggles.length; i++) {
+      toggles[i].addEventListener("click", function () {
+        var root = document.documentElement;
+        // Brief colour fade across the flip; dropped entirely under
+        // prefers-reduced-motion by the enhancements stylesheet.
+        root.classList.add("theme-switching");
+        window.setTimeout(function () {
+          root.classList.remove("theme-switching");
+        }, 320);
+        applyTheme(activeTheme() === "dark" ? "light" : "dark", true);
+      });
+    }
+
+    // No explicit choice yet? Keep tracking the OS until they make one.
+    var query = window.matchMedia("(prefers-color-scheme: dark)");
+    var followSystem = function (event) {
+      if (storedTheme()) return;
+      applyTheme(event.matches ? "dark" : "light", false);
+    };
+    if (query.addEventListener) query.addEventListener("change", followSystem);
+  }
+
   // ── Thank-you reference ─────────────────────────────────────────────
 
   function initReference() {
@@ -288,6 +381,7 @@
 
   markActiveNav();
   initReveal();
+  initTheme();
   initQuoteForm();
   initReference();
   window.addEventListener("hashchange", markActiveNav);
