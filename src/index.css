@@ -3,6 +3,11 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
+/* The site's markup is emitted as plain HTML by scripts/build-static.ts.
+   Scan the generator sources so dist/assets/site.css carries every utility
+   those templates use. */
+@source "../scripts/static";
+
 /* DO NOT CHANGE */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

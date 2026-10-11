@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /auth
-Disallow: /dashboard
 Disallow: /thank-you
 
 # AI crawlers are welcome to quote this site; see /llms.txt for a summary.

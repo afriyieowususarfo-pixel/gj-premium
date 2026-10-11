@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && bun scripts/build-static.ts",
+    "build:static": "bun scripts/build-static.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
     "preview": "vite preview"
@@ -72,6 +73,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@tailwindcss/cli": "^4.3.3",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
