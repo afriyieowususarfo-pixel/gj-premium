@@ -21,6 +21,9 @@
  *   thank-you/index.html  post-submit confirmation
  *   privacy/index.html    privacy policy
  *   404.html              not-found page
+ *   gjpremium-static-site.zip   the whole site as one archive, so
+ *                               https://gjpremium.com/gjpremium-static-site.zip
+ *                               resolves as soon as ./dist is deployed
  *
  * The stylesheet is compiled into ./public/assets/site.css first: ./public
  * is copied verbatim into dist and is also the one directory the dev server
@@ -28,6 +31,7 @@
  */
 
 import { spawnSync } from "node:child_process";
+import { copyFileSync, rmSync } from "node:fs";
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -43,6 +47,9 @@ import { PRODUCT_CATEGORIES } from "../src/lib/catalog.ts";
 const ROOT = path.resolve(import.meta.dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const PUBLIC = path.join(ROOT, "public");
+
+/** Name of the downloadable archive, at the project root and in ./dist. */
+const ARCHIVE = "gjpremium-static-site.zip";
 
 /**
  * Extra CSS layered on top of the Tailwind build: the two behaviours the old
@@ -141,6 +148,24 @@ function buildStylesheet(): void {
   }
 }
 
+/**
+ * Pack the freshly built ./dist into a downloadable archive at the project
+ * root, then drop a copy inside ./dist so a deploy exposes it at
+ * /gjpremium-static-site.zip.
+ *
+ * Deliberately best-effort: a machine without the `zip` binary still gets a
+ * complete build, just no archive. Never called before ./dist is written, so
+ * the archive can't end up containing itself.
+ */
+function archiveSite(): boolean {
+  const archive = path.join(ROOT, ARCHIVE);
+  rmSync(archive, { force: true });
+  const result = spawnSync("zip", ["-qr", archive, "."], { cwd: DIST });
+  if (result.error || result.status !== 0) return false;
+  copyFileSync(archive, path.join(DIST, ARCHIVE));
+  return true;
+}
+
 async function main(): Promise<void> {
   setAssortment(PRODUCT_CATEGORIES);
 
@@ -169,6 +194,13 @@ async function main(): Promise<void> {
       await writeFile(target, html, "utf8");
     }
     console.log(`  ${file}  →  dist/${file}`);
+  }
+
+  // 4) The downloadable archive — last, so it wraps the finished dist.
+  if (archiveSite()) {
+    console.log(`  ${ARCHIVE}  →  dist/${ARCHIVE}`);
+  } else {
+    console.log("  (zip unavailable — archive skipped)");
   }
 
   console.log("  assets/site.css  →  dist/assets/site.css (+ enhancements)");

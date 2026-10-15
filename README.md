@@ -25,6 +25,11 @@ other on every verify run:
   document shell in `scripts/static/site.ts`; product data in
   `src/lib/catalog.ts`. The preview files only refresh on a rebuild, so run
   `bun run build:static` after changing them.
+- Every build also packs `gjpremium-static-site.zip` — the whole site as one
+  archive — at the project root and inside `./dist`, so it is downloadable at
+  `https://gjpremium.com/gjpremium-static-site.zip` once `./dist` is deployed.
+  That step is best-effort: without the `zip` binary the build still succeeds,
+  it just skips the archive.
 
 Verify the result:
 
