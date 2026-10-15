@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        var dark =
+          stored === "dark" ||
+          ((stored === null || stored === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {
+        document.documentElement.classList.add("js");
+      }
+    })();
+  </script>
+  <title>Page not found | GJ Premium</title>
+  <meta name="description" content="That page doesn't exist. Browse the ten product categories, request a quote, or head back to the home page." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://gjpremium.com/404" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GJ Premium" />
+  <meta property="og:title" content="Page not found | GJ Premium" />
+  <meta property="og:description" content="That page doesn't exist. Browse the ten product categories, request a quote, or head back to the home page." />
+  <meta property="og:url" content="https://gjpremium.com/404" />
+  <meta property="og:image" content="https://gjpremium.com/pills-heart.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page not found | GJ Premium" />
+  <meta name="twitter:description" content="That page doesn't exist. Browse the ten product categories, request a quote, or head back to the home page." />
+  <meta name="twitter:image" content="https://gjpremium.com/pills-heart.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+
+</head>
+
+<body>
+  <div class="min-h-screen bg-background">
+      <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 lg:px-8">
+          <a href="/" aria-label="GJ Premium home" class="transition-opacity hover:opacity-80"><span class="whitespace-nowrap font-bold tracking-tight leading-none text-lg"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span></a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+              <a href="/#overview" data-nav data-to="/" data-hash="#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a>
+              <a href="/products/" data-nav data-to="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a>
+              <a href="/#process" data-nav data-to="/" data-hash="#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Process</a>
+          </nav>
+
+          <div class="flex items-center gap-2.5">
+            <button type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" class="inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none">
+              <svg class="size-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              <svg class="hidden size-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+            <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px]">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="border-b border-border">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 grid gap-10 py-16 md:py-24 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-6">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Error 404</p>
+              <h1 class="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl">Page not found.</h1>
+              <p class="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">The page you asked for doesn&apos;t exist. It may have been moved, or the link may be mistyped. Everything on this site is one click away below.</p>
+              <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <a href="/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-full px-7 has-[>svg]:px-4 text-[15px]">Back to home<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                <a href="/quote/" class="text-[15px] font-medium text-foreground underline decoration-border underline-offset-[6px] transition-colors hover:decoration-foreground">Request a quote</a>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 lg:col-start-8">
+              <div class="border border-border">
+                <p class="border-b border-border px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Or go straight to</p>
+                <ul class="divide-y divide-border">
+                  <li>
+                      <a href="/products/" class="flex items-center justify-between gap-4 px-6 py-4 text-sm transition-colors hover:bg-muted/60">All ten product categories<svg class="size-4 shrink-0 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </li>
+                  <li>
+                      <a href="/quote/" class="flex items-center justify-between gap-4 px-6 py-4 text-sm transition-colors hover:bg-muted/60">Request a quote<svg class="size-4 shrink-0 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </li>
+                  <li>
+                      <a href="/#process" class="flex items-center justify-between gap-4 px-6 py-4 text-sm transition-colors hover:bg-muted/60">How the quote process works<svg class="size-4 shrink-0 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </li>
+                  <li>
+                      <a href="/#faq" class="flex items-center justify-between gap-4 px-6 py-4 text-sm transition-colors hover:bg-muted/60">Frequently asked questions<svg class="size-4 shrink-0 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </li>
+                  <li>
+                      <a href="/privacy/" class="flex items-center justify-between gap-4 px-6 py-4 text-sm transition-colors hover:bg-muted/60">Privacy policy<svg class="size-4 shrink-0 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-border">
+      <div class="mx-auto w-full max-w-6xl px-6 pt-14 pb-28 md:pb-14 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <span class="whitespace-nowrap font-bold tracking-tight leading-none text-2xl"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">Medical supply partner to clinics, practices, labs, and care facilities. Quality products, careful fulfillment, one clear quote.</p>
+          </div>
+
+          <div class="grid gap-10 md:col-span-6 md:col-start-7 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Site</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a></li><li><a href="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a></li><li><a href="/#faq" class="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a></li><li><a href="/#cases" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Case studies</a></li><li><a href="/#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Quote process</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Quotes</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/quote/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Request a quote</a></li><li><a href="/quote/#checklist" class="text-sm text-muted-foreground transition-colors hover:text-foreground">What to include</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contact</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="mailto:gjpremium14@gmail.com" class="text-sm text-muted-foreground transition-colors hover:text-foreground">gjpremium14@gmail.com</a></li><li><a href="tel:+447485206665" class="text-sm text-muted-foreground transition-colors hover:text-foreground">+44 7485 206665</a></li><li><span class="text-sm text-muted-foreground">Mon–Fri, 8:00–18:00 ET</span></li></ul>
+          </div>
+          </div>
+        </div>
+
+        <div class="mt-12 border-t border-border pt-7">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Assortment</h3>
+          <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2.5"><li><a href="/products/#wound-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Wound care</a></li><li><a href="/products/#diabetes-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Diabetes care</a></li><li><a href="/products/#infusion-vascular-access" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Infusion &amp; vascular access</a></li><li><a href="/products/#medical-nutrition" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Medical nutrition</a></li><li><a href="/products/#continence-drainage" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Continence drainage</a></li><li><a href="/products/#incontinence-absorbing" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Incontinence absorbing</a></li><li><a href="/products/#nursing-facilities" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Nursing &amp; facilities</a></li><li><a href="/products/#personal-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal care</a></li><li><a href="/products/#personal-protection" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal protection</a></li><li><a href="/products/#surgical-or" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Surgical &amp; OR</a></li></ul>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-5 text-xs text-muted-foreground">
+            <span>&copy; 2026 GJ Premium. All rights reserved.</span>
+            <a href="/privacy/" class="transition-colors hover:text-foreground">Privacy policy</a>
+          </div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Quality &middot; Care &middot; Supply</p>
+        </div>
+      </div>
+    </footer>
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md md:hidden">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <div class="min-w-0">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Reply within one business day</p>
+          <p class="truncate text-sm font-medium">Tell us what you need</p>
+        </div>
+        <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px] shrink-0">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/site.js" defer></script>
+</body>
+
+</html>

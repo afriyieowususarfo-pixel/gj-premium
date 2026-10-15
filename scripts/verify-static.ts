@@ -9,7 +9,10 @@
  *   2. every internal link resolves to a real file, and every `#hash` target
  *      exists as an id on the destination page;
  *   3. tag nesting is balanced for the structural elements;
- *   4. nothing React/Vite-shaped leaked into the output.
+ *   4. nothing React/Vite-shaped leaked into the output;
+ *   5. the copies in the project root — the ones the dev server serves as
+ *      the preview — are byte-identical to the deployed ones, so preview
+ *      and production can't drift apart.
  */
 
 import { readdir, readFile, stat } from "node:fs/promises";
@@ -17,6 +20,7 @@ import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const DIST = path.join(ROOT, "dist");
+const PUBLIC = path.join(ROOT, "public");
 
 /** Tailwind escapes every non [A-Za-z0-9_-] char in a class selector. */
 function toSelector(className: string): string {
@@ -163,6 +167,35 @@ async function main(): Promise<void> {
     }
   }
 
+  // 5 — the project-root copies must match dist exactly
+  for (const file of htmlFiles) {
+    const relative = path.relative(DIST, file);
+    const deployed = await readFile(file, "utf8");
+    try {
+      const preview = await readFile(path.join(ROOT, relative), "utf8");
+      if (preview !== deployed) {
+        problems.push(
+          `${relative}: project root copy differs from dist (rebuild)`,
+        );
+      }
+    } catch {
+      problems.push(
+        `${relative}: no project root copy — the preview would 404 (rebuild)`,
+      );
+    }
+  }
+  for (const asset of ["assets/site.css", "assets/site.js"]) {
+    const deployed = await readFile(path.join(DIST, asset), "utf8");
+    try {
+      const preview = await readFile(path.join(PUBLIC, asset), "utf8");
+      if (preview !== deployed) {
+        problems.push(`${asset}: public/ copy differs from dist (rebuild)`);
+      }
+    } catch {
+      problems.push(`${asset}: missing from public/ (rebuild)`);
+    }
+  }
+
   if (problems.length > 0) {
     console.error(`\n  ${problems.length} problem(s):\n`);
     for (const problem of problems.slice(0, 60)) console.error(`  - ${problem}`);
@@ -174,7 +207,7 @@ async function main(): Promise<void> {
   }
 
   console.log(
-    `\n  ${htmlFiles.length} HTML pages verified: classes, links, anchors, nesting.\n`,
+    `\n  ${htmlFiles.length} HTML pages verified: classes, links, anchors, nesting, preview copies.\n`,
   );
 }
 

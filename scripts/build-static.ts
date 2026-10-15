@@ -3,17 +3,28 @@
  *
  *   bun scripts/build-static.ts
  *
- * Emits a self-contained site into ./dist — plain HTML files, one stylesheet,
- * one script, plus the images/robots/sitemap from ./public. No React, no
- * Convex, no runtime: any static file host (or the Deno server in main.ts)
- * can serve it as-is.
+ * Emits a self-contained site — plain HTML files, one stylesheet, one script,
+ * plus the images/robots/sitemap from ./public. No React, no Convex, no
+ * runtime: any static file host (or the Deno server in main.ts) can serve
+ * ./dist as-is.
  *
- *   dist/index.html            landing page
- *   dist/products/index.html   the ten categories
- *   dist/quote/index.html      the quote form
- *   dist/thank-you/index.html  post-submit confirmation
- *   dist/privacy/index.html    privacy policy
- *   dist/404.html              not-found page
+ * Every page is written twice, to two roots:
+ *
+ *   dist/…       what gets deployed
+ *   ./…          what the dev server resolves requests against, so the
+ *                preview *is* this static site: Vite maps / to index.html,
+ *                /products/ to products/index.html, and so on.
+ *
+ *   index.html            landing page
+ *   products/index.html   the ten categories
+ *   quote/index.html      the quote form
+ *   thank-you/index.html  post-submit confirmation
+ *   privacy/index.html    privacy policy
+ *   404.html              not-found page
+ *
+ * The stylesheet is compiled into ./public/assets/site.css first: ./public
+ * is copied verbatim into dist and is also the one directory the dev server
+ * serves from, so both serve byte-identical CSS.
  */
 
 import { spawnSync } from "node:child_process";
@@ -96,8 +107,9 @@ html:not(.js) [data-theme-toggle] {
 }
 `;
 
-/** Output path for each page, relative to dist. */
+/** Output path for each page, relative to an output root (dist or project). */
 const OUTPUTS: { page: PageInput; file: string }[] = [
+  // `file` is relative — written under DIST (deploy) and under ROOT (preview).
   { page: homePage(), file: "index.html" },
   { page: productsPage(), file: "products/index.html" },
   { page: quotePage(), file: "quote/index.html" },
@@ -115,7 +127,13 @@ function fail(message: string): never {
 function buildStylesheet(): void {
   const result = spawnSync(
     "bunx",
-    ["@tailwindcss/cli", "-i", "src/index.css", "-o", "dist/assets/site.css"],
+    [
+      "@tailwindcss/cli",
+      "-i",
+      "src/index.css",
+      "-o",
+      "public/assets/site.css",
+    ],
     { cwd: ROOT, stdio: "inherit" },
   );
   if (result.status !== 0) {
@@ -126,29 +144,35 @@ function buildStylesheet(): void {
 async function main(): Promise<void> {
   setAssortment(PRODUCT_CATEGORIES);
 
+  // 1) Stylesheet first: Tailwind writes it into ./public/assets, then the
+  //    behaviours the old React runtime owned (reveal, select placeholders,
+  //    theme fade) are appended. ./public is copied into dist verbatim and
+  //    is the only directory the dev server serves static files from, so
+  //    one file here is the single source of truth for both.
+  buildStylesheet();
+  const stylesheet = path.join(PUBLIC, "assets/site.css");
+  const css = await readFile(stylesheet, "utf8");
+  await writeFile(stylesheet, `${css.trimEnd()}\n${ENHANCEMENTS}`, "utf8");
+
+  // 2) A fresh ./dist, then every static asset from ./public.
   await rm(DIST, { recursive: true, force: true });
   await mkdir(path.join(DIST, "assets"), { recursive: true });
-
-  // Static assets (images, robots, sitemap, llms.txt, the site script).
   await cp(PUBLIC, DIST, { recursive: true });
 
+  // 3) The pages: rendered once, written to dist (deployment) and to the
+  //    project root (the dev server's document root).
   for (const { page, file } of OUTPUTS) {
-    const target = path.join(DIST, file);
-    await mkdir(path.dirname(target), { recursive: true });
-    await writeFile(target, renderPage(page), "utf8");
-    console.log(`  dist/${file}`);
+    const html = renderPage(page);
+    for (const dir of [DIST, ROOT]) {
+      const target = path.join(dir, file);
+      await mkdir(path.dirname(target), { recursive: true });
+      await writeFile(target, html, "utf8");
+    }
+    console.log(`  ${file}  →  dist/${file}`);
   }
 
-  buildStylesheet();
-
-  const css = await readFile(path.join(DIST, "assets/site.css"), "utf8");
-  await writeFile(
-    path.join(DIST, "assets/site.css"),
-    `${css.trimEnd()}\n${ENHANCEMENTS}`,
-    "utf8",
-  );
-  console.log("  dist/assets/site.css (+ enhancements)");
-  console.log("  dist/assets/site.js");
+  console.log("  assets/site.css  →  dist/assets/site.css (+ enhancements)");
+  console.log("  assets/site.js   →  dist/assets/site.js");
   console.log("\nStatic site built.\n");
 }
 

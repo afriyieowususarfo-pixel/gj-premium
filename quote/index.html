@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        var dark =
+          stored === "dark" ||
+          ((stored === null || stored === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {
+        document.documentElement.classList.add("js");
+      }
+    })();
+  </script>
+  <title>Request a quote | GJ Premium</title>
+  <meta name="description" content="One short form for clinics, practices, labs and care facilities: items, quantities, delivery location and timing. Pricing, availability and a delivery window back within one business day." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gjpremium.com/quote" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GJ Premium" />
+  <meta property="og:title" content="Request a quote | GJ Premium" />
+  <meta property="og:description" content="One short form for clinics, practices, labs and care facilities: items, quantities, delivery location and timing. Pricing, availability and a delivery window back within one business day." />
+  <meta property="og:url" content="https://gjpremium.com/quote" />
+  <meta property="og:image" content="https://gjpremium.com/pills-heart.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Request a quote | GJ Premium" />
+  <meta name="twitter:description" content="One short form for clinics, practices, labs and care facilities: items, quantities, delivery location and timing. Pricing, availability and a delivery window back within one business day." />
+  <meta name="twitter:image" content="https://gjpremium.com/pills-heart.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gjpremium.com/"},{"@type":"ListItem","position":2,"name":"Request a quote","item":"https://gjpremium.com/quote"}]}</script>
+</head>
+
+<body>
+  <div class="min-h-screen bg-background">
+      <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 lg:px-8">
+          <a href="/" aria-label="GJ Premium home" class="transition-opacity hover:opacity-80"><span class="whitespace-nowrap font-bold tracking-tight leading-none text-lg"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span></a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+              <a href="/#overview" data-nav data-to="/" data-hash="#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a>
+              <a href="/products/" data-nav data-to="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a>
+              <a href="/#process" data-nav data-to="/" data-hash="#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Process</a>
+          </nav>
+
+          <div class="flex items-center gap-2.5">
+            <button type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" class="inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none">
+              <svg class="size-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              <svg class="hidden size-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+            <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px]">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Page header -->
+        <section class="photo-wash border-b border-border">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-14 md:py-16">
+            <nav aria-label="Breadcrumb" class="mb-7">
+      <ol class="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
+        <li class="flex items-center gap-2.5"><a href="/" class="transition-colors hover:text-foreground">Home</a><span aria-hidden>/</span></li>
+        <li class="flex items-center gap-2.5" aria-current="page"><span class="text-foreground">Request a quote</span></li>
+      </ol>
+    </nav>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Request a quote</p>
+            <div class="mt-5 grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-16">
+              <h1 class="text-4xl font-semibold leading-[1.08] tracking-tight md:text-5xl lg:col-span-7">Tell us what you need.</h1>
+              <p class="text-base leading-relaxed text-muted-foreground lg:col-span-5">One short form, no account required. A supply specialist replies with pricing, availability, and delivery timing within one business day.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 grid gap-12 py-14 md:py-16 lg:grid-cols-12 lg:gap-16">
+          <!-- Form -->
+          <div class="lg:col-span-7">
+            <form data-quote-form novalidate action="mailto:gjpremium14@gmail.com" method="post" enctype="text/plain" class="space-y-9">
+              <section class="border-t border-border pt-9 first:border-t-0 first:pt-0">
+              <div class="flex items-baseline gap-4">
+                <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">01</span>
+                <div>
+                  <h2 class="text-[15px] font-medium">Contact</h2>
+                  <p class="mt-1 text-sm text-muted-foreground">Who should the quote be addressed to?</p>
+                </div>
+              </div>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <div>
+                    <label for="fullName" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Full name<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <input id="fullName" name="fullName" type="text" class="placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" autocomplete="name" placeholder="Jordan Ellis" aria-invalid="false" />
+                    <p data-error-for="fullName" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+                  <div>
+                    <label for="email" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Work email<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <input id="email" name="email" type="email" class="placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" autocomplete="email" placeholder="name@facility.com" aria-invalid="false" />
+                    <p data-error-for="email" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label for="phone" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Phone</label>
+                    <input id="phone" name="phone" type="text" class="placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" autocomplete="tel" placeholder="Optional: for delivery coordination" aria-invalid="false" />
+                    <p data-error-for="phone" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+              </div>
+            </section>
+
+              <section class="border-t border-border pt-9 first:border-t-0 first:pt-0">
+              <div class="flex items-baseline gap-4">
+                <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">02</span>
+                <div>
+                  <h2 class="text-[15px] font-medium">Your facility</h2>
+                  <p class="mt-1 text-sm text-muted-foreground">This helps us match pack sizes and compliance standards.</p>
+                </div>
+              </div>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                    <label for="organization" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Organization / facility<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <input id="organization" name="organization" type="text" class="placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" autocomplete="organization" placeholder="e.g. Hillside Family Clinic" aria-invalid="false" />
+                    <p data-error-for="organization" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+                  <div>
+                    <label for="facilityType" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Facility type<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <div class="relative">
+                      <select id="facilityType" name="facilityType" class="border-input data-[empty=true]:text-muted-foreground flex h-10 w-full appearance-none rounded-md border bg-transparent px-3 py-1 pr-9 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm dark:bg-input/30" data-empty="true" aria-invalid="false">
+                        <option value="" disabled selected>Select facility type</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="Clinic / medical practice">Clinic / medical practice</option>
+                        <option value="Long-term care">Long-term care</option>
+                        <option value="Laboratory">Laboratory</option>
+                        <option value="Pharmacy">Pharmacy</option>
+                        <option value="Dental practice">Dental practice</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center"><svg class="size-4 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </div>
+                    <p data-error-for="facilityType" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+                  <div>
+                    <label for="category" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Primary category<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <div class="relative">
+                      <select id="category" name="category" class="border-input data-[empty=true]:text-muted-foreground flex h-10 w-full appearance-none rounded-md border bg-transparent px-3 py-1 pr-9 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm dark:bg-input/30" data-empty="true" aria-invalid="false">
+                        <option value="" disabled selected>Select category</option>
+                        <option value="Wound care">Wound care</option>
+                        <option value="Diabetes care">Diabetes care</option>
+                        <option value="Infusion &amp; vascular access">Infusion &amp; vascular access</option>
+                        <option value="Medical nutrition">Medical nutrition</option>
+                        <option value="Continence drainage">Continence drainage</option>
+                        <option value="Incontinence absorbing">Incontinence absorbing</option>
+                        <option value="Nursing &amp; facilities">Nursing &amp; facilities</option>
+                        <option value="Personal care">Personal care</option>
+                        <option value="Personal protection">Personal protection</option>
+                        <option value="Surgical &amp; OR">Surgical &amp; OR</option>
+                        <option value="Multiple categories">Multiple categories</option>
+                        <option value="Not sure yet">Not sure yet</option>
+                        <option value="Something else: request a product we don’t stock yet">Something else: request a product we don’t stock yet</option>
+                      </select>
+                      <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center"><svg class="size-4 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </div>
+                    <p data-error-for="category" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+              </div>
+            </section>
+
+              <section class="border-t border-border pt-9 first:border-t-0 first:pt-0">
+              <div class="flex items-baseline gap-4">
+                <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">03</span>
+                <div>
+                  <h2 class="text-[15px] font-medium">What you need</h2>
+                  <p class="mt-1 text-sm text-muted-foreground">List items and quantities: model numbers help, but aren't required.</p>
+                </div>
+              </div>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                    <label for="items" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Items &amp; quantities<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <textarea id="items" name="items" class="border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-32 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" placeholder="Nitrile exam gloves, medium: 20 boxes&#10;Fluid-resistant gowns: 50 units" aria-invalid="false"></textarea>
+                    <p data-error-for="items" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+                  <div>
+                    <label for="neededBy" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Needed by<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <div class="relative">
+                      <select id="neededBy" name="neededBy" class="border-input data-[empty=true]:text-muted-foreground flex h-10 w-full appearance-none rounded-md border bg-transparent px-3 py-1 pr-9 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] md:text-sm dark:bg-input/30" data-empty="true" aria-invalid="false">
+                        <option value="" disabled selected>Select timeframe</option>
+                        <option value="ASAP (within 48 hours)">ASAP (within 48 hours)</option>
+                        <option value="Within 1 week">Within 1 week</option>
+                        <option value="Within 2 weeks">Within 2 weeks</option>
+                        <option value="Within 30 days">Within 30 days</option>
+                        <option value="Planning ahead">Planning ahead</option>
+                      </select>
+                      <span class="pointer-events-none absolute inset-y-0 right-3 flex items-center"><svg class="size-4 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+                    </div>
+                    <p data-error-for="neededBy" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+              </div>
+            </section>
+
+              <section class="border-t border-border pt-9 first:border-t-0 first:pt-0">
+              <div class="flex items-baseline gap-4">
+                <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">04</span>
+                <div>
+                  <h2 class="text-[15px] font-medium">Delivery</h2>
+                  <p class="mt-1 text-sm text-muted-foreground">Where should fulfillment go?</p>
+                </div>
+              </div>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                <div>
+                    <label for="location" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">City / region<span aria-hidden class="ml-1 text-destructive">*</span></label>
+                    <input id="location" name="location" type="text" class="placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" autocomplete="address-level2" placeholder="e.g. Columbus, OH" aria-invalid="false" />
+                    <p data-error-for="location" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+                  <div>
+                    <label for="notes" class="mb-2 block items-center gap-2 text-sm leading-none font-medium select-none">Notes</label>
+                    <input id="notes" name="notes" type="text" class="placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" autocomplete="off" placeholder="Optional: brands, billing, standards" aria-invalid="false" />
+                    <p data-error-for="notes" role="alert" class="mt-1.5 text-xs text-destructive" hidden></p>
+                  </div>
+              </div>
+            </section>
+
+              <div data-submit-error role="alert" class="border border-destructive/40 bg-destructive/5 px-4 py-3 text-sm text-destructive" hidden></div>
+
+              <div class="border-t border-border pt-7">
+                <button type="submit" data-submit class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-full px-7 has-[>svg]:px-4 text-[15px]">
+                  <span data-submit-idle>Submit request<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                  <span data-submit-busy class="hidden"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>Sending&hellip;</span>
+                </button>
+                <p class="mt-4 text-xs leading-relaxed text-muted-foreground">We only use your details to prepare your quote. No account, no mailing list. See our <a href="/privacy/" class="underline decoration-border underline-offset-4 transition-colors hover:text-foreground">privacy policy</a>.</p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Aside -->
+          <aside class="lg:col-span-4 lg:col-start-9">
+            <div class="lg:sticky lg:top-24 lg:space-y-8">
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">What happens next</p>
+                <ol class="mt-5 space-y-5">
+                  <li class="flex gap-4">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">01</span>
+                      <div>
+                        <p class="text-sm font-medium">We review your request</p>
+                        <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Availability, pack sizes, and alternatives for your facility.</p>
+                      </div>
+                    </li>
+                  <li class="flex gap-4">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">02</span>
+                      <div>
+                        <p class="text-sm font-medium">Quote in your inbox</p>
+                        <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Pricing and a delivery window, within one business day.</p>
+                      </div>
+                    </li>
+                  <li class="flex gap-4">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">03</span>
+                      <div>
+                        <p class="text-sm font-medium">You approve</p>
+                        <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Reply to confirm, and we schedule fulfillment.</p>
+                      </div>
+                    </li>
+                </ol>
+              </div>
+
+              <div id="checklist" class="scroll-mt-24 border border-border p-6">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">For the fastest quote</p>
+                <ul class="mt-4 space-y-3">
+                  <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Items, quantities, and any model numbers</li>
+                    <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Your delivery address or service region</li>
+                    <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Your needed-by date</li>
+                    <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>A work email for the quote</li>
+                </ul>
+              </div>
+
+              <div class="border-t border-border pt-6">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Prefer to talk</p>
+                <div class="mt-3 space-y-1 text-sm">
+                  <p>
+                    <a href="mailto:gjpremium14@gmail.com" class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">gjpremium14@gmail.com</a>
+                  </p>
+                  <p>
+                    <a href="tel:+447485206665" class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">+44 7485 206665</a>
+                  </p>
+                  <p class="text-muted-foreground">Mon&ndash;Fri, 8:00&ndash;18:00 ET</p>
+                </div>
+              </div>
+
+              <div class="border-t border-border pt-6">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Need something we don&rsquo;t stock yet?</p>
+                <p class="mt-3 text-sm leading-relaxed text-foreground">If the product you need isn&rsquo;t in our assortment, send the enquiry anyway: pick &ldquo;Something else: request a product we don&rsquo;t stock yet&rdquo; as your primary category and name the product, size, and quantity in the notes. A supply specialist replies within one business day with availability, a suitable alternative, or a clear reason we can&rsquo;t supply it.</p>
+                <p class="mt-3 text-sm text-muted-foreground">No product is too small or too specific to ask about.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="border-t border-border">
+      <div class="mx-auto w-full max-w-6xl px-6 pt-14 pb-28 md:pb-14 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <span class="whitespace-nowrap font-bold tracking-tight leading-none text-2xl"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">Medical supply partner to clinics, practices, labs, and care facilities. Quality products, careful fulfillment, one clear quote.</p>
+          </div>
+
+          <div class="grid gap-10 md:col-span-6 md:col-start-7 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Site</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a></li><li><a href="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a></li><li><a href="/#faq" class="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a></li><li><a href="/#cases" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Case studies</a></li><li><a href="/#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Quote process</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Quotes</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/quote/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Request a quote</a></li><li><a href="/quote/#checklist" class="text-sm text-muted-foreground transition-colors hover:text-foreground">What to include</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contact</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="mailto:gjpremium14@gmail.com" class="text-sm text-muted-foreground transition-colors hover:text-foreground">gjpremium14@gmail.com</a></li><li><a href="tel:+447485206665" class="text-sm text-muted-foreground transition-colors hover:text-foreground">+44 7485 206665</a></li><li><span class="text-sm text-muted-foreground">Mon–Fri, 8:00–18:00 ET</span></li></ul>
+          </div>
+          </div>
+        </div>
+
+        <div class="mt-12 border-t border-border pt-7">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Assortment</h3>
+          <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2.5"><li><a href="/products/#wound-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Wound care</a></li><li><a href="/products/#diabetes-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Diabetes care</a></li><li><a href="/products/#infusion-vascular-access" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Infusion &amp; vascular access</a></li><li><a href="/products/#medical-nutrition" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Medical nutrition</a></li><li><a href="/products/#continence-drainage" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Continence drainage</a></li><li><a href="/products/#incontinence-absorbing" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Incontinence absorbing</a></li><li><a href="/products/#nursing-facilities" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Nursing &amp; facilities</a></li><li><a href="/products/#personal-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal care</a></li><li><a href="/products/#personal-protection" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal protection</a></li><li><a href="/products/#surgical-or" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Surgical &amp; OR</a></li></ul>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-5 text-xs text-muted-foreground">
+            <span>&copy; 2026 GJ Premium. All rights reserved.</span>
+            <a href="/privacy/" class="transition-colors hover:text-foreground">Privacy policy</a>
+          </div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Quality &middot; Care &middot; Supply</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/site.js" defer></script>
+</body>
+
+</html>

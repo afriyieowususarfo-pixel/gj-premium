@@ -7,23 +7,25 @@ const app = new Hono();
 // only apply when this Deno server serves ./dist (the Vite dev preview does
 // not run this file, so local development is unaffected).
 //
-// CSP grants each resource type only the origins the app actually uses:
-//  - scripts: the bundle itself, the inline theme bootstrap in index.html,
-//    and Google Analytics (loaded only when VITE_GA_ID is configured).
-//  - connect: this deployment's Convex backend (wildcard convex.cloud covers
-//    the project URL and its websocket) plus GA beacons.
-//  - fonts: Google Fonts, which index.html preconnects to.
+// The site is plain static HTML: it calls no API of its own, so CSP only
+// grants what the pages actually load:
+//  - scripts: /assets/site.js plus the inline theme bootstrap in <head>
+//  - style/fonts: Google Fonts, which every page preconnects to
+//  - connect: nothing beyond 'self' (no backend, no analytics)
+//  - form-action: 'self' for a normal POST, plus mailto: for the quote
+//    form's no-JavaScript fallback — with JS on, site.js opens the mail
+//    client itself, which form-action does not govern.
 // Everything else defaults to 'self'; framing and plugins are denied.
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com",
-  "connect-src 'self' https://*.convex.cloud wss://*.convex.cloud https://*.google-analytics.com https://www.googletagmanager.com",
+  "img-src 'self' data:",
+  "connect-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
-  "form-action 'self'",
+  "form-action 'self' mailto:",
   "frame-ancestors 'none'",
 ].join("; ");
 
@@ -47,10 +49,21 @@ app.use("*", async (c, next) => {
 // 1) Serve anything in /assets/**
 app.use("/assets/*", serveStatic({ root: "./dist/assets" }));
 
-// 2) Catch *all* other files in dist (CSS, JS, images, etc.)
+// 2) Everything else in dist (HTML pages, robots, sitemap, images, …).
+//    hono's serveStatic resolves a directory URL to its index.html, so
+//    /products/ lands on dist/products/index.html.
 app.use("*", serveStatic({ root: "./dist" }));
 
-// 3) Fallback to index.html for the SPA
-app.get("*", serveStatic({ path: "./dist/index.html" }));
+// 3) Unknown paths answer with the real 404 page and a 404 status. The site
+//    is multi-page now: there is no client router left to fall back to, and
+//    serving index.html for every URL would tell search engines that every
+//    path exists.
+app.get(
+  "*",
+  serveStatic({
+    path: "./dist/404.html",
+    onFound: (_path, c) => c.status(404),
+  }),
+);
 
 Deno.serve(app.fetch);

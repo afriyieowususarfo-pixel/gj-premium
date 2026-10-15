@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        var dark =
+          stored === "dark" ||
+          ((stored === null || stored === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
+      } catch (e) {
+        document.documentElement.classList.add("js");
+      }
+    })();
+  </script>
+  <title>Privacy policy | GJ Premium</title>
+  <meta name="description" content="How GJ Premium collects, uses and retains the details you send through the quote form, what we never do with them, and the choices you have." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gjpremium.com/privacy" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GJ Premium" />
+  <meta property="og:title" content="Privacy policy | GJ Premium" />
+  <meta property="og:description" content="How GJ Premium collects, uses and retains the details you send through the quote form, what we never do with them, and the choices you have." />
+  <meta property="og:url" content="https://gjpremium.com/privacy" />
+  <meta property="og:image" content="https://gjpremium.com/pills-heart.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy policy | GJ Premium" />
+  <meta name="twitter:description" content="How GJ Premium collects, uses and retains the details you send through the quote form, what we never do with them, and the choices you have." />
+  <meta name="twitter:image" content="https://gjpremium.com/pills-heart.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gjpremium.com/"},{"@type":"ListItem","position":2,"name":"Privacy policy","item":"https://gjpremium.com/privacy"}]}</script>
+</head>
+
+<body>
+  <div class="min-h-screen bg-background">
+      <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 lg:px-8">
+          <a href="/" aria-label="GJ Premium home" class="transition-opacity hover:opacity-80"><span class="whitespace-nowrap font-bold tracking-tight leading-none text-lg"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span></a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+              <a href="/#overview" data-nav data-to="/" data-hash="#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a>
+              <a href="/products/" data-nav data-to="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a>
+              <a href="/#process" data-nav data-to="/" data-hash="#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Process</a>
+          </nav>
+
+          <div class="flex items-center gap-2.5">
+            <button type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" class="inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none">
+              <svg class="size-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              <svg class="hidden size-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+            <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px]">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="border-b border-border">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-14 md:py-16">
+            <nav aria-label="Breadcrumb" class="mb-7">
+      <ol class="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-muted-foreground">
+        <li class="flex items-center gap-2.5"><a href="/" class="transition-colors hover:text-foreground">Home</a><span aria-hidden>/</span></li>
+        <li class="flex items-center gap-2.5" aria-current="page"><span class="text-foreground">Privacy policy</span></li>
+      </ol>
+    </nav>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Legal</p>
+            <div class="mt-5 grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-16">
+              <h1 class="text-4xl font-semibold leading-[1.08] tracking-tight md:text-5xl lg:col-span-7">Privacy policy</h1>
+              <p class="text-sm leading-relaxed text-muted-foreground lg:col-span-5">Effective October 4, 2026. This policy explains what we collect on this website, why we collect it, and the choices you have.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-14 md:py-16">
+          <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <nav aria-label="Contents" class="lg:col-span-3 lg:sticky lg:top-24 lg:self-start">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Contents</p>
+              <ol class="mt-4 border-t border-border">
+                  <li class="border-b border-border">
+                    <a href="#collect" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">01</span>
+                      Information we collect
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#use" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">02</span>
+                      How we use it
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#store" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">03</span>
+                      How we store and protect it
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#sharing" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">04</span>
+                      Sharing and disclosure
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#cookies" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">05</span>
+                      Cookies and tracking
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#retention" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">06</span>
+                      Retention
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#rights" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">07</span>
+                      Your rights and choices
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#third-parties" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">08</span>
+                      Third-party services
+                    </a>
+                  </li>
+                  <li class="border-b border-border">
+                    <a href="#changes" class="flex items-baseline gap-3 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">09</span>
+                      Changes to this policy
+                    </a>
+                  </li>
+              </ol>
+            </nav>
+
+            <div class="space-y-12 lg:col-span-8 lg:col-start-5">
+              <section id="collect" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">01</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Information we collect</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>We only collect what you choose to give us. When you submit a quote request, that includes:</p>
+        <dl class="mt-5 border-t border-border">
+          <div class="grid gap-1 border-b border-border py-4 sm:grid-cols-12 sm:gap-6">
+              <dt class="text-sm font-medium sm:col-span-4">Contact details</dt>
+              <dd class="text-sm leading-relaxed text-muted-foreground sm:col-span-8">Your name, organization or facility name, work email, and optionally a phone number.</dd>
+            </div>
+          <div class="grid gap-1 border-b border-border py-4 sm:grid-cols-12 sm:gap-6">
+              <dt class="text-sm font-medium sm:col-span-4">Facility details</dt>
+              <dd class="text-sm leading-relaxed text-muted-foreground sm:col-span-8">Your facility type and primary product category.</dd>
+            </div>
+          <div class="grid gap-1 border-b border-border py-4 sm:grid-cols-12 sm:gap-6">
+              <dt class="text-sm font-medium sm:col-span-4">Quote details</dt>
+              <dd class="text-sm leading-relaxed text-muted-foreground sm:col-span-8">The items and quantities you request, your needed-by timeframe, delivery city or region, and any notes you add.</dd>
+            </div>
+          <div class="grid gap-1 border-b border-border py-4 sm:grid-cols-12 sm:gap-6">
+              <dt class="text-sm font-medium sm:col-span-4">Technical logs</dt>
+              <dd class="text-sm leading-relaxed text-muted-foreground sm:col-span-8">Standard connection information such as IP address, browser type, and timestamps, recorded by our hosting provider for security and debugging.</dd>
+            </div>
+        </dl>
+                  </div>
+                </section>
+
+              <section id="use" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">02</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">How we use it</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>We use your information to:</p>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-muted-foreground marker:text-border">
+          <li>prepare and deliver the quote you requested;</li>
+          <li>contact you about that request: clarifying items, confirming availability, and scheduling fulfillment;</li>
+          <li>keep the site secure and improve how it works.</li>
+          <li>We do not use your details for marketing. Submitting a quote never signs you up for a mailing list.</li>
+        </ul>
+                  </div>
+                </section>
+
+              <section id="store" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">03</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">How we store and protect it</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>Quote requests are stored in our database, operated by our hosting provider Convex. Data is encrypted in transit (HTTPS) and at rest, and access is limited to the GJ Premium team members who handle quotes. We review that access regularly and do not let third parties use the database for their own purposes.</p>
+                  </div>
+                </section>
+
+              <section id="sharing" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">04</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Sharing and disclosure</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>We do not sell your personal information. We share it only with service providers who help us run this website and deliver quotes (such as our hosting and database provider), or where required by law, for example, a valid legal request.</p>
+                  </div>
+                </section>
+
+              <section id="cookies" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">05</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Cookies and tracking</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>This site does not use advertising cookies, tracking pixels, or third-party analytics scripts. Any storage the site uses is strictly necessary for the site to function.</p>
+                  </div>
+                </section>
+
+              <section id="retention" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">06</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Retention</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>We keep quote request details for as long as we need them to handle your request and maintain ordinary business records. After that, we delete or anonymize them. You can ask us to delete yours at any time.</p>
+                  </div>
+                </section>
+
+              <section id="rights" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">07</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Your rights and choices</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>You can ask us to:</p>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-muted-foreground marker:text-border">
+          <li>give you a copy of the information we hold about you;</li>
+          <li>correct anything that is inaccurate;</li>
+          <li>delete your information, or restrict how we use it;</li>
+          <li>stop contacting you about a request.</li>
+        </ul>
+        <p class="mt-4">To exercise any of these, email <a href="mailto:gjpremium14@gmail.com" class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">gjpremium14@gmail.com</a>. We respond within 30 days, and sooner where local law requires it.</p>
+                  </div>
+                </section>
+
+              <section id="third-parties" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">08</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Third-party services</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>This site is hosted with Convex (database and backend) and loads its typeface from Google Fonts. Each processes data under its own privacy policy; we choose providers carefully and only for what the site needs.</p>
+                  </div>
+                </section>
+
+              <section id="changes" class="scroll-mt-20">
+                  <div class="flex items-baseline gap-4 border-b border-border pb-4">
+                    <span class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">09</span>
+                    <h2 class="text-xl font-semibold tracking-tight md:text-2xl">Changes to this policy</h2>
+                  </div>
+                  <div class="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+                    <p>We may update this policy as the site or the law changes. The current version always appears on this page with its effective date at the top. Material changes will be posted here before they take effect.</p>
+                  </div>
+                </section>
+
+              <div class="border border-border p-7 md:p-8">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Questions about your data</p>
+                <div class="mt-4 space-y-1.5 text-sm">
+                  <p>
+                    <a href="mailto:gjpremium14@gmail.com" class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">gjpremium14@gmail.com</a>
+                  </p>
+                  <p>
+                    <a href="tel:+447485206665" class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">+44 7485 206665</a>
+                  </p>
+                  <p class="text-muted-foreground">Mon&ndash;Fri, 8:00&ndash;18:00 ET</p>
+                </div>
+                <p class="mt-5 text-sm text-muted-foreground">Prefer to request a quote first? <a href="/quote/" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">Open the quote form</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="border-t border-border">
+      <div class="mx-auto w-full max-w-6xl px-6 pt-14 pb-28 md:pb-14 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <span class="whitespace-nowrap font-bold tracking-tight leading-none text-2xl"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">Medical supply partner to clinics, practices, labs, and care facilities. Quality products, careful fulfillment, one clear quote.</p>
+          </div>
+
+          <div class="grid gap-10 md:col-span-6 md:col-start-7 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Site</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a></li><li><a href="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a></li><li><a href="/#faq" class="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a></li><li><a href="/#cases" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Case studies</a></li><li><a href="/#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Quote process</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Quotes</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/quote/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Request a quote</a></li><li><a href="/quote/#checklist" class="text-sm text-muted-foreground transition-colors hover:text-foreground">What to include</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contact</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="mailto:gjpremium14@gmail.com" class="text-sm text-muted-foreground transition-colors hover:text-foreground">gjpremium14@gmail.com</a></li><li><a href="tel:+447485206665" class="text-sm text-muted-foreground transition-colors hover:text-foreground">+44 7485 206665</a></li><li><span class="text-sm text-muted-foreground">Mon–Fri, 8:00–18:00 ET</span></li></ul>
+          </div>
+          </div>
+        </div>
+
+        <div class="mt-12 border-t border-border pt-7">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Assortment</h3>
+          <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2.5"><li><a href="/products/#wound-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Wound care</a></li><li><a href="/products/#diabetes-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Diabetes care</a></li><li><a href="/products/#infusion-vascular-access" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Infusion &amp; vascular access</a></li><li><a href="/products/#medical-nutrition" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Medical nutrition</a></li><li><a href="/products/#continence-drainage" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Continence drainage</a></li><li><a href="/products/#incontinence-absorbing" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Incontinence absorbing</a></li><li><a href="/products/#nursing-facilities" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Nursing &amp; facilities</a></li><li><a href="/products/#personal-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal care</a></li><li><a href="/products/#personal-protection" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal protection</a></li><li><a href="/products/#surgical-or" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Surgical &amp; OR</a></li></ul>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-5 text-xs text-muted-foreground">
+            <span>&copy; 2026 GJ Premium. All rights reserved.</span>
+            <a href="/privacy/" class="transition-colors hover:text-foreground">Privacy policy</a>
+          </div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Quality &middot; Care &middot; Supply</p>
+        </div>
+      </div>
+    </footer>
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md md:hidden">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <div class="min-w-0">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Reply within one business day</p>
+          <p class="truncate text-sm font-medium">Tell us what you need</p>
+        </div>
+        <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px] shrink-0">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/site.js" defer></script>
+</body>
+
+</html>

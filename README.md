@@ -1,3 +1,42 @@
+## The website is static HTML
+
+The site that ships is plain generated HTML — no React, no backend, no
+runtime framework. One command renders all six pages:
+
+```bash
+bun run build:static   # also runs, after `tsc -b`, as part of `bun run build`
+```
+
+Each page is written to **two** roots, and the two are checked against each
+other on every verify run:
+
+| output | served as |
+| --- | --- |
+| `index.html`, `products/index.html`, `quote/index.html`, `thank-you/index.html`, `privacy/index.html`, `404.html` | `./dist` (deploy) **and** `./` (preview) |
+| `assets/site.css`, `assets/site.js`, `robots.txt`, `sitemap.xml`, images | `./public` (source) **and** `./dist` (deploy) |
+
+- **`./dist`** is the deployable site: any static file host, or the Deno file
+  server in `main.ts`.
+- **`./`** is what the dev server serves — Vite resolves `/`, `/products/`,
+  `/quote/` … to those `index.html` files, so the preview *is* the static
+  site. For the same reason the root `index.html` is **generated**: never
+  hand-edit it, edit the generator instead.
+- Page content lives in `scripts/static/pages/*.ts`; shared chrome and the
+  document shell in `scripts/static/site.ts`; product data in
+  `src/lib/catalog.ts`. The preview files only refresh on a rebuild, so run
+  `bun run build:static` after changing them.
+
+Verify the result:
+
+```bash
+bun scripts/verify-static.ts   # classes, links, anchors, nesting, preview copies
+bun scripts/check-preview.ts   # what the dev server actually returns per route
+bun scripts/smoke-theme.ts     # theme toggle behaviour against the shipped JS
+```
+
+The React app under `src/` (pages, `src/main.tsx`, Convex) is the template
+frontend this site was built from; no page loads it any more.
+
 ## Overview
 
 This project uses the following tech stack:

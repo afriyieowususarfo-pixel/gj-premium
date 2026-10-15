@@ -9,8 +9,6 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)" />
   <script>
-    // Apply the saved/system theme before first paint (matches next-themes'
-    // storage key and values) so there is no flash of the wrong theme.
     (function () {
       try {
         var stored = localStorage.getItem("theme");
@@ -20,84 +18,522 @@
             window.matchMedia("(prefers-color-scheme: dark)").matches);
         if (dark) document.documentElement.classList.add("dark");
         document.documentElement.style.colorScheme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
       } catch (e) {
-        /* storage blocked: fall back to the default light theme */
+        document.documentElement.classList.add("js");
       }
     })();
   </script>
   <title>GJ Premium | Medical Supply, Quoted in One Business Day</title>
-  <meta name="description"
-    content="GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day." />
+  <meta name="description" content="GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://gjpremium.com/" />
 
-  <!-- Social share (overwritten per page at runtime by src/lib/seo.ts) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GJ Premium" />
   <meta property="og:title" content="GJ Premium | Medical Supply, Quoted in One Business Day" />
-  <meta property="og:description"
-    content="Ten medical supply categories, one short quote form, a written response within one business day." />
+  <meta property="og:description" content="GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day." />
   <meta property="og:url" content="https://gjpremium.com/" />
   <meta property="og:image" content="https://gjpremium.com/pills-heart.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="GJ Premium | Medical Supply, Quoted in One Business Day" />
-  <meta name="twitter:description"
-    content="Ten medical supply categories, one short quote form, a written response within one business day." />
+  <meta name="twitter:description" content="GJ Premium supplies clinics, practices, labs and care facilities across ten medical supply categories. Request a quote and get pricing, availability and a delivery window within one business day." />
   <meta name="twitter:image" content="https://gjpremium.com/pills-heart.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!--
-    Organization / local business data. `address` is intentionally omitted;
-    add your street address and postal code here as soon as they are final,
-    it is what powers "local" map results.
-  -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "GJ Premium",
-      "description": "Medical supply company supplying clinics, practices, laboratories and care facilities across ten product categories, with quotes returned within one business day.",
-      "url": "https://gjpremium.com/",
-      "logo": "https://gjpremium.com/logo.svg",
-      "image": "https://gjpremium.com/pills-heart.jpg",
-      "email": "gjpremium14@gmail.com",
-      "telephone": "+447485206665",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        }
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "email": "gjpremium14@gmail.com",
-          "telephone": "+447485206665",
-          "availableLanguage": ["English"],
-          "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          }
-        }
-      ],
-      "areaServed": "US"
-    }
-  </script>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly will I get a quote?","acceptedAnswer":{"@type":"Answer","text":"Within one business day. You get pricing, availability, and a delivery window in writing, under a reference number."}},{"@type":"Question","name":"Do I need an account to order?","acceptedAnswer":{"@type":"Answer","text":"No. There is nothing to sign up for: one short form, and a supply specialist replies to your work email."}},{"@type":"Question","name":"What should I include in the request?","acceptedAnswer":{"@type":"Answer","text":"Items and quantities, your delivery location, and your needed-by date. Model numbers help, but plain descriptions are fine."}},{"@type":"Question","name":"Does it cost anything to request a quote?","acceptedAnswer":{"@type":"Answer","text":"Nothing. Quotes are free and carry no obligation: the figure arrives so you can compare it against what you pay today."}},{"@type":"Question","name":"Who do you supply?","acceptedAnswer":{"@type":"Answer","text":"Clinics, medical practices, laboratories, pharmacies, dental practices, long-term care and home-health agencies, across all ten categories we stock."}},{"@type":"Question","name":"What if an item isn't in your list?","acceptedAnswer":{"@type":"Answer","text":"Send it anyway. Catalogue names differ between suppliers; we sort your list into the right categories, and propose equivalents where a line is discontinued."}},{"@type":"Question","name":"How long is a quote valid?","acceptedAnswer":{"@type":"Answer","text":"The validity period is stated on the quote itself, so you have a date you can plan a decision around rather than a moving target."}},{"@type":"Question","name":"Where do you deliver, and how fast?","acceptedAnswer":{"@type":"Answer","text":"Delivery is quoted per request: include your address or service region and the quote comes back with a delivery window for that location."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"GJ Premium","description":"Medical supply company supplying clinics, practices, laboratories and care facilities across ten product categories, with quotes returned within one business day.","url":"https://gjpremium.com/","logo":"https://gjpremium.com/logo.svg","image":"https://gjpremium.com/pills-heart.jpg","email":"gjpremium14@gmail.com","telephone":"+447485206665","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"gjpremium14@gmail.com","telephone":"+447485206665","availableLanguage":["English"],"hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}}],"areaServed":"US"}</script>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <div class="min-h-screen bg-background">
+      <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+        <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 lg:px-8">
+          <a href="/" aria-label="GJ Premium home" class="transition-opacity hover:opacity-80"><span class="whitespace-nowrap font-bold tracking-tight leading-none text-lg"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span></a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+              <a href="/#overview" data-nav data-to="/" data-hash="#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a>
+              <a href="/products/" data-nav data-to="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a>
+              <a href="/#process" data-nav data-to="/" data-hash="#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Process</a>
+          </nav>
+
+          <div class="flex items-center gap-2.5">
+            <button type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme" class="inline-flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-none">
+              <svg class="size-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+              <svg class="hidden size-4 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </button>
+            <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px]">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section id="overview" class="photo-wash scroll-mt-16 border-b border-border">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 grid items-center gap-12 pb-16 pt-16 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-7">
+              <div class="reveal"><p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Quality &middot; Care &middot; Supply</p>
+                <h1 class="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">Medical supplies,<br />without the runaround.</h1>
+                <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">GJ Premium keeps clinics, practices, and care facilities stocked with the everyday essentials of patient care. This site is simple by design: tell us what you need, and a supply specialist replies with a clear quote, usually within one business day.</p>
+                <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+                  <a href="/quote/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-full px-7 has-[>svg]:px-4 text-[15px]">Request a quote<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                  <a href="#process" class="text-[15px] font-medium text-foreground underline decoration-border underline-offset-[6px] transition-colors hover:decoration-foreground">See how it works</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal  lg:col-span-5" style="--reveal-delay:0.15s"><div class="border border-border bg-card p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] md:p-7">
+                <div class="flex items-baseline justify-between">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Quote request</p>
+                  <p class="text-xs tabular-nums text-muted-foreground">#GJ-P-4821</p>
+                </div>
+                <p class="mt-1.5 text-sm text-foreground">Hillside Family Clinic</p>
+
+                <div class="mt-6 space-y-3.5 border-t border-border pt-5">
+                  <div class="flex items-baseline gap-3">
+                      <span class="text-sm text-foreground">Nitrile exam gloves</span>
+                      <span aria-hidden class="-translate-y-1 flex-1 border-b border-dotted border-border"></span>
+                      <span class="text-sm tabular-nums text-muted-foreground">240 cs</span>
+                    </div>
+                  <div class="flex items-baseline gap-3">
+                      <span class="text-sm text-foreground">Fluid-resistant gowns</span>
+                      <span aria-hidden class="-translate-y-1 flex-1 border-b border-dotted border-border"></span>
+                      <span class="text-sm tabular-nums text-muted-foreground">60 cs</span>
+                    </div>
+                  <div class="flex items-baseline gap-3">
+                      <span class="text-sm text-foreground">Wound dressing sets</span>
+                      <span aria-hidden class="-translate-y-1 flex-1 border-b border-dotted border-border"></span>
+                      <span class="text-sm tabular-nums text-muted-foreground">120 ea</span>
+                    </div>
+                  <div class="flex items-baseline gap-3">
+                      <span class="text-sm text-foreground">Oximeter sensor strips</span>
+                      <span aria-hidden class="-translate-y-1 flex-1 border-b border-dotted border-border"></span>
+                      <span class="text-sm tabular-nums text-muted-foreground">40 ea</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-center gap-2.5 border-t border-border pt-5">
+                  <span class="flex size-5 items-center justify-center rounded-full bg-brand-teal/10"><svg class="size-3 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+                  <p class="text-sm text-muted-foreground">Response within <span class="text-foreground">one business day</span></p>
+                </div>
+            </div></div>
+          </div>
+
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 border-t border-border">
+            <dl class="grid grid-cols-1 divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              <div class="py-8 sm:px-8 sm:first:pl-0 sm:last:pr-0">
+                  <dt class="text-xl font-semibold tracking-tight md:text-2xl">1 business day</dt>
+                  <dd class="mt-1.5 text-sm text-muted-foreground">Typical turnaround on a quote request.</dd>
+                </div>
+              <div class="py-8 sm:px-8 sm:first:pl-0 sm:last:pr-0">
+                  <dt class="text-xl font-semibold tracking-tight md:text-2xl">About 2 minutes</dt>
+                  <dd class="mt-1.5 text-sm text-muted-foreground">To submit a request. No account needed.</dd>
+                </div>
+              <div class="py-8 sm:px-8 sm:first:pl-0 sm:last:pr-0">
+                  <dt class="text-xl font-semibold tracking-tight md:text-2xl">One specialist</dt>
+                  <dd class="mt-1.5 text-sm text-muted-foreground">Your single contact, from quote to delivery.</dd>
+                </div>
+            </dl>
+          </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div class="reveal  lg:col-span-5"><p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Introduction</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">Who we are, and what this website is for.</h2>
+            </div>
+
+            <div class="reveal  lg:col-span-6 lg:col-start-7" style="--reveal-delay:0.1s"><div class="space-y-5 text-base leading-relaxed text-muted-foreground md:text-[17px]">
+                <p class="text-foreground">GJ Premium is a medical supply company. We keep care settings stocked with the products they use every day: gloves, gowns, dressings, diagnostics, and consumables, in the pack sizes you actually order.</p>
+                <p>This website exists to make one thing simple: getting a quote. There is no account to create and no phone tag. You tell us what your facility needs, and a supply specialist replies with pricing, availability, and delivery timing.</p>
+              </div>
+
+              <div class="mt-9 border border-border">
+                <p class="border-b border-border px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">What to do here</p>
+                <ul class="divide-y divide-border">
+                  <li class="flex gap-5 px-6 py-4">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">01</span>
+                      <div>
+                        <p class="text-sm font-medium">See what we supply</p>
+                        <p class="mt-1 text-sm text-muted-foreground">Ten product categories, with the typical line items in each.</p>
+                      </div>
+                    </li>
+                  <li class="flex gap-5 px-6 py-4">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">02</span>
+                      <div>
+                        <p class="text-sm font-medium">Request a quote</p>
+                        <p class="mt-1 text-sm text-muted-foreground">One short form. No account, no phone tag.</p>
+                      </div>
+                    </li>
+                  <li class="flex gap-5 px-6 py-4">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">03</span>
+                      <div>
+                        <p class="text-sm font-medium">Get an answer</p>
+                        <p class="mt-1 text-sm text-muted-foreground">Pricing and availability within one business day.</p>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- What we supply -->
+        <section id="supply" class="scroll-mt-16 border-y border-border bg-muted/40">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+            <div class="reveal"><div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-7">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">What we supply</p>
+                  <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">The essentials of patient care, kept in stock.</h2>
+                </div>
+                <div class="lg:col-span-5">
+                  <p class="text-base leading-relaxed text-muted-foreground">Ten categories, from wound care to the operating room, each one with the line items facilities ask us for most.</p>
+                  <a href="/products/" class="mt-5 inline-flex items-center gap-2 text-[15px] font-medium text-foreground underline decoration-border underline-offset-[6px] transition-colors hover:decoration-foreground">See the full assortment<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+            </div></div>
+
+            <div class="reveal  mt-12" style="--reveal-delay:0.1s"><ul class="border-t border-border">
+                <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">01</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#wound-care" class="transition-colors hover:text-brand-navy">Wound care</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Primary and advanced dressings for acute and chronic wounds, plus the tapes, bandages and antiseptics that go with them.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">02</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#diabetes-care" class="transition-colors hover:text-brand-navy">Diabetes care</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Everyday consumables for glucose monitoring and insulin delivery, in the pack sizes clinics and pharmacies reorder most.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">03</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#infusion-vascular-access" class="transition-colors hover:text-brand-navy">Infusion &amp; vascular access</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Sets, catheters and accessories for starting and maintaining intravenous therapy, from single IVs to recurring infusions.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">04</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#medical-nutrition" class="transition-colors hover:text-brand-navy">Medical nutrition</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Enteral formulas, oral supplements and the delivery sets needed for clinical nutrition at the bedside or at home.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">05</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#continence-drainage" class="transition-colors hover:text-brand-navy">Continence drainage</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Closed drainage for urinary care: catheters, bags and accessories chosen for comfort, safety and length of stay.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">06</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#incontinence-absorbing" class="transition-colors hover:text-brand-navy">Incontinence absorbing</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Absorbent products for light through heavy incontinence, sized for hospital, long-term care and home use.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">07</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#nursing-facilities" class="transition-colors hover:text-brand-navy">Nursing &amp; facilities</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">The general consumables a nursing station and a care facility go through every shift: measured, bagged, and delivered.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">08</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#personal-care" class="transition-colors hover:text-brand-navy">Personal care</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Hygiene and skin care for daily patient care: gentle cleansers, barrier protection and bathing essentials.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">09</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#personal-protection" class="transition-colors hover:text-brand-navy">Personal protection</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">PPE for staff and patients, stocked in the case quantities facilities burn through, with fit, grade, and standard checked.</p>
+                  </li>
+              <li class="grid grid-cols-12 items-baseline gap-x-4 gap-y-2 border-b border-border py-6 transition-colors hover:bg-background/60">
+                    <span class="col-span-2 text-xs font-semibold tabular-nums tracking-[0.15em] text-muted-foreground md:col-span-1">10</span>
+                    <h3 class="col-span-10 text-base font-medium md:col-span-4 lg:col-span-3"><a href="/products/#surgical-or" class="transition-colors hover:text-brand-navy">Surgical &amp; OR</a></h3>
+                    <p class="col-span-12 text-sm leading-relaxed text-muted-foreground md:col-span-7 lg:col-span-7 lg:col-start-6">Sterile consumables for the operating theatre: drapes, gowns and procedure packs assembled around your list.</p>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quote process -->
+        <section id="process" class="mx-auto w-full max-w-6xl px-6 lg:px-8 scroll-mt-16 py-20 md:py-28">
+          <div class="reveal"><p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">How it works</p>
+            <div class="mt-5 grid gap-5 lg:grid-cols-12 lg:items-end lg:gap-16">
+              <h2 class="text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:col-span-7">From request to quote, in four steps.</h2>
+              <p class="text-base leading-relaxed text-muted-foreground lg:col-span-5">No account, no phone tag. Here is exactly what happens after you press submit.</p>
+            </div>
+          </div>
+
+          <div class="mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
+            <div class="reveal"><div class="border-t border-foreground/20 pt-6">
+                  <p class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">01</p>
+                  <h3 class="mt-4 text-base font-medium">Send your request</h3>
+                  <p class="mt-2.5 text-sm leading-relaxed text-muted-foreground">Fill in the quote form: items and quantities, delivery location, and timing. It takes about two minutes, with no account required.</p>
+                </div></div>
+            <div class="reveal" style="--reveal-delay:0.07s"><div class="border-t border-foreground/20 pt-6">
+                  <p class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">02</p>
+                  <h3 class="mt-4 text-base font-medium">We review the details</h3>
+                  <p class="mt-2.5 text-sm leading-relaxed text-muted-foreground">A supply specialist checks availability, pack sizes, and suitable alternatives for your facility type.</p>
+                </div></div>
+            <div class="reveal" style="--reveal-delay:0.14s"><div class="border-t border-foreground/20 pt-6">
+                  <p class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">03</p>
+                  <h3 class="mt-4 text-base font-medium">Quote in your inbox</h3>
+                  <p class="mt-2.5 text-sm leading-relaxed text-muted-foreground">You receive clear pricing, availability, and a delivery window within one business day.</p>
+                </div></div>
+            <div class="reveal" style="--reveal-delay:0.21000000000000002s"><div class="border-t border-foreground/20 pt-6">
+                  <p class="text-xs font-semibold tabular-nums tracking-[0.2em] text-brand-navy">04</p>
+                  <h3 class="mt-4 text-base font-medium">Approve and schedule</h3>
+                  <p class="mt-2.5 text-sm leading-relaxed text-muted-foreground">Approve the quote and we schedule fulfillment. Questions? Reply to the email; the same specialist handles them.</p>
+                </div></div>
+          </div>
+
+          <div class="reveal  mt-14" style="--reveal-delay:0.1s"><div class="grid gap-8 border border-border p-7 md:grid-cols-2 md:p-10">
+              <div class="flex flex-col justify-between gap-6">
+                <div>
+                  <h3 class="text-xl font-semibold tracking-tight md:text-2xl">Ready to request a quote?</h3>
+                  <p class="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">Have your list, delivery address, and needed-by date at hand. The form takes about two minutes.</p>
+                </div>
+                <div>
+                  <a href="/quote/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-full px-7 has-[>svg]:px-4 text-[15px]">Request a quote<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+              </div>
+
+              <div class="md:border-l md:border-border md:pl-10">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Have these ready</p>
+                <ul class="mt-5 space-y-3.5">
+                  <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Items, quantities, and any model numbers</li>
+                    <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Your delivery address or service region</li>
+                    <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Your needed-by date</li>
+                    <li class="flex items-start gap-3 text-sm text-foreground"><svg class="mt-0.5 size-4 shrink-0 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>A work email for the quote</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Response-time promise -->
+        <section id="promise" class="scroll-mt-16 border-y border-border bg-muted/40">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-20 md:py-24">
+            <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+              <div class="reveal  lg:col-span-5"><p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Response-time promise</p>
+                <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">One business day, in writing.</h2>
+                <p class="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">If we ever miss it, you get a reason and a revised date the same way, so you should never be left wondering whether anyone read your request.</p>
+                <div class="mt-8">
+                  <a href="/quote/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-10 rounded-full px-7 has-[>svg]:px-4 text-[15px]">Request a quote<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                </div>
+              </div>
+
+              <div class="reveal  lg:col-span-6 lg:col-start-7" style="--reveal-delay:0.1s"><ol class="border-t border-border">
+                  <li class="flex gap-5 border-b border-border py-6">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">01</span>
+                      <div>
+                        <p class="text-base font-medium">Within one business day</p>
+                        <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">Every request gets a written reply with pricing, availability and a delivery window, or a clear reason why we can't quote it.</p>
+                      </div>
+                    </li>
+                  <li class="flex gap-5 border-b border-border py-6">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">02</span>
+                      <div>
+                        <p class="text-base font-medium">In writing, with a reference</p>
+                        <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">The quote arrives by email under your reference number, so there is a record you can compare, forward, and reply to.</p>
+                      </div>
+                    </li>
+                  <li class="flex gap-5 border-b border-border py-6">
+                      <span class="text-xs font-semibold tabular-nums tracking-[0.15em] text-brand-navy">03</span>
+                      <div>
+                        <p class="text-base font-medium">No waiting on us</p>
+                        <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">If something in your list is ambiguous, we ask before quoting instead of going quiet. One specialist owns the thread.</p>
+                      </div>
+                    </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case studies -->
+        <section id="cases" class="scroll-mt-16">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+            <div class="reveal"><div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-7">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Case studies</p>
+                  <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">How supply actually gets fixed.</h2>
+                </div>
+                <p class="text-base leading-relaxed text-muted-foreground lg:col-span-5">Three real shapes of problem: bought in parallel, picked by hand, and stranded on a long lead time, and what changed once the list moved to one supplier.</p>
+            </div></div>
+
+            <div class="mt-12 grid gap-6 md:grid-cols-3">
+              <div class="reveal  h-full"><article class="flex h-full flex-col border border-border p-6 md:p-7">
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-brand-navy">Multi-site dental group</p>
+                    <h3 class="mt-4 text-lg font-medium leading-snug">Four locations, one order list</h3>
+                    <dl class="mt-6 space-y-4 text-sm">
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Challenge</dt>
+                        <dd class="mt-1.5 leading-relaxed text-muted-foreground">Each clinic bought separately, at different prices, from different reps, and nobody could see the total.</dd>
+                      </div>
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">What we did</dt>
+                        <dd class="mt-1.5 leading-relaxed text-muted-foreground">One shared assortment and price list across the group, ordered through a single contact and delivered on one schedule.</dd>
+                      </div>
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Outcome</dt>
+                        <dd class="mt-1.5 leading-relaxed text-foreground">One invoice, one person to call, and no per-site reordering.</dd>
+                      </div>
+                    </dl>
+                  </article></div>
+            <div class="reveal  h-full" style="--reveal-delay:0.07s"><article class="flex h-full flex-col border border-border p-6 md:p-7">
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-brand-navy">Home health agency</p>
+                    <h3 class="mt-4 text-lg font-medium leading-snug">Wound kits built to the care plan</h3>
+                    <dl class="mt-6 space-y-4 text-sm">
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Challenge</dt>
+                        <dd class="mt-1.5 leading-relaxed text-muted-foreground">Nurses were assembling dressing kits by hand before every visit, and running out of the slow movers at short notice.</dd>
+                      </div>
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">What we did</dt>
+                        <dd class="mt-1.5 leading-relaxed text-muted-foreground">Pre-assembled kits matched to their four most common care plans, replenished against a standing list.</dd>
+                      </div>
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Outcome</dt>
+                        <dd class="mt-1.5 leading-relaxed text-foreground">Less time picking, fewer emergency orders, kits that match the plan.</dd>
+                      </div>
+                    </dl>
+                  </article></div>
+            <div class="reveal  h-full" style="--reveal-delay:0.14s"><article class="flex h-full flex-col border border-border p-6 md:p-7">
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-brand-navy">Rural urgent-care clinic</p>
+                    <h3 class="mt-4 text-lg font-medium leading-snug">Covering the gaps in a small store room</h3>
+                    <dl class="mt-6 space-y-4 text-sm">
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Challenge</dt>
+                        <dd class="mt-1.5 leading-relaxed text-muted-foreground">Low volumes meant high minimums, long lead times, and discontinued lines arriving as surprises.</dd>
+                      </div>
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">What we did</dt>
+                        <dd class="mt-1.5 leading-relaxed text-muted-foreground">Quantities quoted in the pack sizes they actually use, with equivalents proposed whenever a line was discontinued.</dd>
+                      </div>
+                      <div>
+                        <dt class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Outcome</dt>
+                        <dd class="mt-1.5 leading-relaxed text-foreground">Stock that turns before it expires, and no dead ends on a reorder.</dd>
+                      </div>
+                    </dl>
+                  </article></div>
+            </div>
+
+            <div class="reveal  mt-10" style="--reveal-delay:0.1s"><p class="text-sm text-muted-foreground">Facing something similar? <a href="/quote/" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">Tell us what you need</a> and you get the fix priced back within one business day.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="scroll-mt-16 border-t border-border">
+          <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+            <div class="reveal"><div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-7">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">FAQ</p>
+                  <h2 class="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">Questions, answered.</h2>
+                </div>
+                <p class="text-base leading-relaxed text-muted-foreground lg:col-span-5">Anything not covered here? <a href="/quote/" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">Ask in the quote form</a>, since the notes field reaches the same specialist.</p>
+            </div></div>
+
+            <dl class="mt-12 border-t border-border">
+              <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">How quickly will I get a quote?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">Within one business day. You get pricing, availability, and a delivery window in writing, under a reference number. </dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">Do I need an account to order?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">No. There is nothing to sign up for: one short form, and a supply specialist replies to your work email. </dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">What should I include in the request?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">Items and quantities, your delivery location, and your needed-by date. Model numbers help, but plain descriptions are fine. <a href="/quote/#checklist" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">See what to include</a></dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">Does it cost anything to request a quote?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">Nothing. Quotes are free and carry no obligation: the figure arrives so you can compare it against what you pay today. </dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">Who do you supply?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">Clinics, medical practices, laboratories, pharmacies, dental practices, long-term care and home-health agencies, across all ten categories we stock. <a href="/products/" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">See the categories</a></dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">What if an item isn't in your list?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">Send it anyway. Catalogue names differ between suppliers; we sort your list into the right categories, and propose equivalents where a line is discontinued. <a href="/products/#categories" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">See how sourcing works</a></dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">How long is a quote valid?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">The validity period is stated on the quote itself, so you have a date you can plan a decision around rather than a moving target. </dd>
+                </div>
+            <div class="grid gap-x-4 gap-y-2 border-b border-border py-6 md:grid-cols-12">
+                  <dt class="text-base font-medium md:col-span-5">Where do you deliver, and how fast?</dt>
+                  <dd class="text-sm leading-relaxed text-muted-foreground md:col-span-6 md:col-start-7">Delivery is quoted per request: include your address or service region and the quote comes back with a delivery window for that location. </dd>
+                </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="bg-neutral-950 text-white">
+        <div class="mx-auto w-full max-w-6xl px-6 lg:px-8 flex flex-col gap-8 py-16 md:flex-row md:items-center md:justify-between md:py-20">
+          <div>
+            <p class="mb-7 text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-teal">Quality &middot; Care &middot; Supply</p>
+            <h2 class="max-w-xl text-3xl font-semibold leading-tight tracking-tight md:text-4xl">Tell us what you need. We&apos;ll price it.</h2>
+            <p class="mt-4 max-w-md text-sm leading-relaxed text-neutral-400">One form, one specialist, one business day. Quotes for clinics, practices, labs, and care facilities.</p>
+          </div>
+          <div class="flex flex-col items-start gap-4">
+            <a href="/quote/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive h-10 rounded-full px-7 has-[>svg]:px-4 text-[15px] bg-white text-neutral-950 hover:bg-neutral-200">Request a quote<svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <p class="text-xs text-neutral-500">Typical response: within one business day.</p>
+          </div>
+        </div>
+      </section>
+      </main>
+
+      <footer class="border-t border-border">
+      <div class="mx-auto w-full max-w-6xl px-6 pt-14 pb-28 md:pb-14 lg:px-8">
+        <div class="grid gap-10 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <span class="whitespace-nowrap font-bold tracking-tight leading-none text-2xl"><span class="text-brand-navy">GJ</span> <span class="font-semibold text-brand-teal">Premium</span></span>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">Medical supply partner to clinics, practices, labs, and care facilities. Quality products, careful fulfillment, one clear quote.</p>
+          </div>
+
+          <div class="grid gap-10 md:col-span-6 md:col-start-7 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Site</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/#overview" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Overview</a></li><li><a href="/products/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Products</a></li><li><a href="/#faq" class="text-sm text-muted-foreground transition-colors hover:text-foreground">FAQ</a></li><li><a href="/#cases" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Case studies</a></li><li><a href="/#process" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Quote process</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Quotes</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="/quote/" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Request a quote</a></li><li><a href="/quote/#checklist" class="text-sm text-muted-foreground transition-colors hover:text-foreground">What to include</a></li></ul>
+          </div>
+            <div>
+            <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contact</h3>
+            <ul class="mt-4 space-y-2.5"><li><a href="mailto:gjpremium14@gmail.com" class="text-sm text-muted-foreground transition-colors hover:text-foreground">gjpremium14@gmail.com</a></li><li><a href="tel:+447485206665" class="text-sm text-muted-foreground transition-colors hover:text-foreground">+44 7485 206665</a></li><li><span class="text-sm text-muted-foreground">Mon–Fri, 8:00–18:00 ET</span></li></ul>
+          </div>
+          </div>
+        </div>
+
+        <div class="mt-12 border-t border-border pt-7">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Assortment</h3>
+          <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2.5"><li><a href="/products/#wound-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Wound care</a></li><li><a href="/products/#diabetes-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Diabetes care</a></li><li><a href="/products/#infusion-vascular-access" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Infusion &amp; vascular access</a></li><li><a href="/products/#medical-nutrition" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Medical nutrition</a></li><li><a href="/products/#continence-drainage" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Continence drainage</a></li><li><a href="/products/#incontinence-absorbing" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Incontinence absorbing</a></li><li><a href="/products/#nursing-facilities" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Nursing &amp; facilities</a></li><li><a href="/products/#personal-care" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal care</a></li><li><a href="/products/#personal-protection" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Personal protection</a></li><li><a href="/products/#surgical-or" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Surgical &amp; OR</a></li></ul>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-5 text-xs text-muted-foreground">
+            <span>&copy; 2026 GJ Premium. All rights reserved.</span>
+            <a href="/privacy/" class="transition-colors hover:text-foreground">Privacy policy</a>
+          </div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.3em] text-brand-navy">Quality &middot; Care &middot; Supply</p>
+        </div>
+      </div>
+    </footer>
+  <div class="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md md:hidden">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
+        <div class="min-w-0">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Reply within one business day</p>
+          <p class="truncate text-sm font-medium">Tell us what you need</p>
+        </div>
+        <a href="/quote/" class="inline-flex items-center justify-center gap-1.5 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 h-8 rounded-full px-4 has-[>svg]:px-2.5 text-[13px] shrink-0">Request a quote<svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/site.js" defer></script>
 </body>
 
 </html>
