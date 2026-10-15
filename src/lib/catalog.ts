@@ -11,6 +11,21 @@ export type ProductCategory = {
   items: string[];
 };
 
+/**
+ * Product groups are the finer-grained lines we quote from. The same
+ * catalog structure feeds the React quote page and the static quote form,
+ * so the assortment can never drift between the two builds.
+ *
+ * slugs are used as stable ids on the products page and in structured
+ * quote copy; names are shown to buyers.
+ */
+export type ProductGroup = {
+  slug: string;
+  name: string;
+  /** Typical pack sizes, gauges, or lengths buyers ask for. */
+  variants: string[];
+};
+
 export const PRODUCT_CATEGORIES: ProductCategory[] = [
   {
     slug: "wound-care",
@@ -50,6 +65,53 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       "Extension and tubing sets",
       "Infusion accessories",
     ],
+    groups: [
+      {
+        slug: "iv-cannulas",
+        name: "I.V cannulas",
+        variants: [
+          "I.V Cannula 16G",
+          "I.V Cannula 18G",
+          "I.V Cannula 20G",
+          "I.V Cannula 22G",
+          "I.V Cannula 24G",
+          "I.V Cannula 26G",
+        ],
+      },
+      {
+        slug: "nasal-oxygen-cannulas",
+        name: "Nasal oxygen cannulas",
+        variants: [
+          "Nasal Oxygen Cannula – Neonate",
+          "Nasal Oxygen Cannula – Kids",
+          "Nasal Oxygen Cannula – Adult",
+        ],
+      },
+      {
+        slug: "ryles-tubes",
+        name: "Ryles tubes",
+        variants: [
+          "Ryles Tube Size 5",
+          "Ryles Tube Size 6",
+          "Ryles Tube Size 7",
+          "Ryles Tube Size 8",
+          "Ryles Tube Size 10",
+          "Ryles Tube Size 12",
+          "Ryles Tube Size 16",
+          "Ryles Tube Size 18",
+          "Ryles Tube Size 20",
+        ],
+      },
+      {
+        slug: "suction-catheters",
+        name: "Suction catheters",
+        variants: [
+          "Suction Catheter Size 12",
+          "Suction Catheter Size 14",
+          "Suction Catheter Size 35",
+        ],
+      },
+    ],
   },
   {
     slug: "medical-nutrition",
@@ -75,6 +137,48 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       "Leg bags and straps",
       "Catheter care and fixation",
       "Anti-reflux valves",
+    ],
+    groups: [
+      {
+        slug: "intermittent-catheters",
+        name: "Catheters",
+        variants: [
+          "Catheter Size 6",
+          "Catheter Size 8",
+          "Catheter Size 10",
+          "Catheter Size 12",
+          "Catheter Size 14",
+          "Catheter Size 16",
+          "Catheter Size 18",
+          "Catheter Size 20",
+          "Catheter Size 22",
+        ],
+      },
+      {
+        slug: "foley-catheters",
+        name: "Foley catheters",
+        variants: [
+          "Foley Catheter 14F",
+          "Foley Catheter 16F",
+          "Foley Catheter 20F",
+          "Foley Catheter 24F",
+        ],
+      },
+      {
+        slug: "silicone-catheters",
+        name: "Silicone catheters",
+        variants: [
+          "Silicon Catheter Size 6",
+          "Silicon Catheter Size 8",
+          "Silicon Catheter Size 10",
+          "Silicon Catheter Size 12",
+          "Silicon Catheter Size 14",
+          "Silicon Catheter Size 16",
+          "Silicon Catheter Size 18",
+          "Silicon Catheter Size 20",
+          "Silicon Catheter Size 22",
+        ],
+      },
     ],
   },
   {
@@ -141,6 +245,13 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
       "Suction and irrigation",
       "Suturing consumables",
     ],
+    groups: [
+      {
+        slug: "cord-clamp",
+        name: "Cord clamp",
+        variants: ["Cord Clamp"],
+      },
+    ],
   },
 ];
 
@@ -149,7 +260,26 @@ export const CATEGORY_OPTIONS: string[] = [
   ...PRODUCT_CATEGORIES.map((category) => category.name),
   "Multiple categories",
   "Not sure yet",
+  "Something else: request a product we don’t stock yet",
 ];
+
+/**
+ * All currently hosted product lines, across categories. We use this on the
+ * quote page to tell buyers which exact items are available now, and to
+ * make the “we don’t have it yet” enquiry path obvious.
+ */
+export const HOSTED_PRODUCT_LINES: ProductGroup[] = PRODUCT_CATEGORIES
+  .filter((category): category is ProductCategory & { groups: ProductGroup[] } =>
+    "groups" in category,
+  )
+  .flatMap((category) =>
+    category.groups.map((group) => ({
+      categorySlug: category.slug,
+      categoryName: category.name,
+      ...group,
+    })),
+  );
+
 
 /** Link to the quote form with the primary category already selected. */
 export function quotePathFor(categoryName: string): string {

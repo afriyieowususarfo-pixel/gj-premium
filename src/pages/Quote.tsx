@@ -50,6 +50,10 @@ const CHECKLIST = [
   "A work email for the quote",
 ];
 
+const PRODUCT_LINES_SECTION_TITLE = "Currently available product lines";
+const PRODUCT_LINES_SECTION_BODY =
+  "If the item you need is already here, choose its category and list the variant you want. If it isn’t, use the enquiry path below and we’ll tell you whether we can still help.";
+
 const NEXT_STEPS = [
   {
     number: "01",
@@ -481,6 +485,7 @@ export default function Quote() {
                   />
                 </FormSection>
 
+
                 <FormSection
                   number="04"
                   title="Delivery"
@@ -512,6 +517,7 @@ export default function Quote() {
                     />
                   </Field>
                 </FormSection>
+
 
                 {submitError && (
                   <div
@@ -628,7 +634,37 @@ export default function Quote() {
                 </div>
               </div>
             </div>
-          </aside>
+          </div>
+        </aside>
+
+      <SiteFooter />
+    </div>
+  );
+}
+          <div>            <div className="lg:sticky lg:top-24 lg:space-y-8">
+              <div className="border-t border-border pt-6">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                  Need something we don’t stock yet?
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-foreground">
+                  The quote form already accepts any product list, including items
+                  we do not currently carry. Choose “Something else: request a
+                  product we don’t stock yet” as your primary category, list the
+                  product and quantity in the notes, and the same specialist will
+                  come back with whether we can source it, an alternative, or a
+                  clear reason we can’t.
+                </p>
+                <div className="mt-4 flex items-center gap-2 text-sm">
+                  <span className="shrink-0 h-5 w-5 rounded-full border border-border bg-muted flex items-center justify-center text-[11px] font-semibold text-brand-navy">
+                    !
+                  </span>
+                  <p className="text-muted-foreground">
+                    No product is too small or too specific for an enquiry.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
@@ -636,3 +672,9 @@ export default function Quote() {
     </div>
   );
 }
+
+export const _placeholder = "keep file ending clean";
+
+
+
+
