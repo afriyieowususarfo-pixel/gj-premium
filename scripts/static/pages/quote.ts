@@ -338,6 +338,12 @@ export function quotePage(): PageInput {
                   ${contact}
                 </div>
               </div>
+
+              <div class="border-t border-border pt-6">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">Need something we don&rsquo;t stock yet?</p>
+                <p class="mt-3 text-sm leading-relaxed text-foreground">If the product you need isn&rsquo;t in our assortment, send the enquiry anyway: pick &ldquo;Something else: request a product we don&rsquo;t stock yet&rdquo; as your primary category and name the product, size, and quantity in the notes. A supply specialist replies within one business day with availability, a suitable alternative, or a clear reason we can&rsquo;t supply it.</p>
+                <p class="mt-3 text-sm text-muted-foreground">No product is too small or too specific to ask about.</p>
+              </div>
             </div>
           </aside>
         </div>`;

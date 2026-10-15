@@ -189,6 +189,39 @@ export default function Products() {
                           </li>
                         ))}
                       </ul>
+
+                      {category.groups && category.groups.length > 0 && (
+                        <div className="mt-5 border-t border-border pt-4">
+                          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                            Product lines we stock
+                          </p>
+                          <ul className="mt-3 space-y-1.5">
+                            {category.groups.map((group) => (
+                              <li
+                                key={group.slug}
+                                className="text-[13px] leading-relaxed"
+                              >
+                                <span className="font-medium text-foreground">
+                                  {group.name}
+                                </span>{" "}
+                                <span className="text-muted-foreground">
+                                  — {group.variants.join(", ")}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                          <p className="mt-3 text-[13px] text-muted-foreground">
+                            Need something outside this list?{" "}
+                            <Link
+                              to="/quote"
+                              className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                            >
+                              Send an enquiry
+                            </Link>{" "}
+                            and we’ll tell you what we can source.
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </li>
                 ))}

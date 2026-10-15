@@ -9,6 +9,8 @@ export type ProductCategory = {
   description: string;
   /** Typical line items a facility asks us to quote. */
   items: string[];
+  /** Finer-grained lines we quote from, where the category has them. */
+  groups?: ProductGroup[];
 };
 
 /**
@@ -268,9 +270,15 @@ export const CATEGORY_OPTIONS: string[] = [
  * quote page to tell buyers which exact items are available now, and to
  * make the “we don’t have it yet” enquiry path obvious.
  */
-export const HOSTED_PRODUCT_LINES: ProductGroup[] = PRODUCT_CATEGORIES
-  .filter((category): category is ProductCategory & { groups: ProductGroup[] } =>
-    "groups" in category,
+export type HostedProductLine = ProductGroup & {
+  categorySlug: string;
+  categoryName: string;
+};
+
+export const HOSTED_PRODUCT_LINES: HostedProductLine[] = PRODUCT_CATEGORIES
+  .filter(
+    (category): category is ProductCategory & { groups: ProductGroup[] } =>
+      category.groups !== undefined,
   )
   .flatMap((category) =>
     category.groups.map((group) => ({

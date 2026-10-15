@@ -73,6 +73,24 @@ export function productsPage(): PageInput {
                           )
                           .join("")}
                       </ul>
+                      ${category.groups?.length
+                        ? `<div class="mt-5 border-t border-border pt-4">
+                      <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Product lines we stock</p>
+                      <ul class="mt-3 space-y-1.5">
+                        ${category.groups
+                          .map(
+                            (group) =>
+                              `<li class="text-[13px] leading-relaxed"><span class="font-medium text-foreground">${esc(
+                                group.name,
+                              )}</span> <span class="text-muted-foreground">&mdash; ${esc(
+                                group.variants.join(", "),
+                              )}</span></li>`,
+                          )
+                          .join("")}
+                      </ul>
+                      <p class="mt-3 text-[13px] text-muted-foreground">Need something outside this list? <a href="/quote/" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground">Send an enquiry</a> and we&rsquo;ll tell you what we can source.</p>
+                    </div>`
+                        : ""}
                     </div>
                   </li>`,
   ).join("\n              ");
